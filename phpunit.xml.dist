@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<phpunit
+        bootstrap="vendor/autoload.php"
+        colors="true"
+        stopOnFailure="false"
+        verbose="true"
+>
+    <testsuites>
+        <testsuite name="FitParser Test Suite">
+            <directory>tests</directory>
+        </testsuite>
+    </testsuites>
+
+    <filter>
+        <whitelist>
+            <directory suffix=".php">src</directory>
+        </whitelist>
+    </filter>
+
+    <logging>
+        <log type="coverage-html" target="build/coverage" />
+        <log type="junit" target="build/logs/junit.xml" />
+    </logging>
+
+    <coverage processUncoveredFiles="true">
+        <include>
+            <directory>src</directory>
+        </include>
+    </coverage>
+
+    <php>
+        <env name="APP_ENV" value="test" />
+    </php>
+</phpunit>
