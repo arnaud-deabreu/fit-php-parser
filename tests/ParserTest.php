@@ -8,6 +8,11 @@ use FitParser\Parser;
 use PHPUnit\Framework\Assert;
 use PHPUnit\Framework\TestCase;
 
+/**
+ * @internal
+ *
+ * @coversNothing
+ */
 final class ParserTest extends TestCase
 {
     public function testParseValidFile(): void
