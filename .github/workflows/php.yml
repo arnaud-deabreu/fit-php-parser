@@ -39,3 +39,6 @@ jobs:
 
     - name: Run phpstan
       run: make phpstan
+
+    - name: Run phpcsfixer
+      run: make phpcsfixer
