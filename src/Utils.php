@@ -19,7 +19,9 @@ final readonly class Utils
             return null;
         }
 
-        return reset($values);
+        $values = array_filter($values, static fn ($value) => null !== $value);
+
+        return $values[0] ?? null;
     }
 
     /**
@@ -45,7 +47,7 @@ final readonly class Utils
     {
         $dateTimeImmutable = \DateTimeImmutable::createFromFormat('U', (string) (self::FIT_EPOCH + $datetime));
 
-        if (false === $dateTimeImmutable) {
+        if (false === $dateTimeImmutable || $datetime < 0) {
             throw new \RuntimeException('Failed to convert DateTimeImmutable value');
         }
 
