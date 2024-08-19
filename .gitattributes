@@ -1,4 +1,4 @@
-/data
+/data export-ignore
 /tests export-ignore
 /phpunit.xml.dist export-ignore
 /.gitattributes export-ignore
