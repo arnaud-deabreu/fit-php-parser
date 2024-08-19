@@ -2,23 +2,23 @@
 
 declare(strict_types=1);
 
-namespace FitParser\Messages\Field;
+namespace FitParser\Messages\Definitions;
 
-final readonly class DeveloperFieldDefinition
+final readonly class DeveloperField
 {
     private function __construct(
-        public int $fieldDefinitionNumber,
+        public int $number,
         public int $size,
         public int $developerDataIndex,
     ) {}
 
     public static function create(
-        int $fieldDefinitionNumber,
+        int $number,
         int $size,
         int $developerDataIndex,
     ): self {
         return new self(
-            $fieldDefinitionNumber,
+            $number,
             $size,
             $developerDataIndex,
         );

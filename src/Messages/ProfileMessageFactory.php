@@ -4,10 +4,12 @@ declare(strict_types=1);
 
 namespace FitParser\Messages;
 
-final readonly class MessageProfileFactory
+use FitParser\Messages\Profile\Message;
+
+final readonly class ProfileMessageFactory
 {
     /**
-     * @return MessageProfile[]
+     * @return Message[]
      */
     public static function fromJsonFile(): array
     {
@@ -41,7 +43,7 @@ final readonly class MessageProfileFactory
 
         $messages = [];
         foreach ($assocMessageProfiles as $assocMessageProfile) {
-            $messageProfile = MessageProfile::fromArray($assocMessageProfile);
+            $messageProfile = Message::fromArray($assocMessageProfile);
             $messages[$messageProfile->num] = $messageProfile;
         }
 

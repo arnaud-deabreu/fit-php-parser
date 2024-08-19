@@ -4,13 +4,14 @@ declare(strict_types=1);
 
 namespace FitParser\Messages;
 
-use FitParser\Enums\BaseTypeEnum;
-use FitParser\Enums\MaskEnum;
-use FitParser\Messages\Field\DeveloperFieldDefinition;
-use FitParser\Messages\Field\FieldDefinition;
+use FitParser\Enums\BaseType;
+use FitParser\Enums\Mask;
+use FitParser\Messages\Definitions\DeveloperField;
+use FitParser\Messages\Definitions\Field;
+use FitParser\Messages\Profile\Message;
 use FitParser\Stream;
 
-final readonly class MessageDefinition
+final readonly class DefinitionMessage
 {
     private function __construct(
         public int $recordHeader,
@@ -21,27 +22,27 @@ final readonly class MessageDefinition
         public int $globalMessageNumber,
         public int $numFields,
         /**
-         * @var FieldDefinition[] $fieldDefinitions
+         * @var Field[] $fieldDefinitions
          */
         public array $fieldDefinitions,
         /**
-         * @var DeveloperFieldDefinition[] $developerFieldDefinitions
+         * @var DeveloperField[] $developerFieldDefinitions
          */
         public array $developerFieldDefinitions,
         public int $messageSize,
         public int $developerDataSize,
-        public MessageProfile $messageProfile,
+        public Message $profileMessage,
     ) {}
 
     /**
-     * @param MessageProfile[] $messageProfiles
+     * @param Message[] $profileMessages
      */
     public static function create(
         Stream $stream,
-        array $messageProfiles,
+        array $profileMessages,
     ): self {
         $recordHeader = $stream->readByte();
-        $localMesgNum = $recordHeader & MaskEnum::LOCAL_MESG_NUM_MASK->value;
+        $localMesgNum = $recordHeader & Mask::LOCAL_MESG_NUM_MASK->value;
         $reserved = $stream->readByte();
         $architecture = $stream->readByte();
         $littleEndian = 0 === $architecture;
@@ -52,10 +53,10 @@ final readonly class MessageDefinition
         $fieldDefinitions = [];
 
         for ($i = 0; $i < $numFields; ++$i) {
-            $fieldDefinition = FieldDefinition::create(
+            $fieldDefinition = Field::create(
                 $stream->readByte(),
                 $stream->readByte(),
-                BaseTypeEnum::from($stream->readByte())
+                BaseType::from($stream->readByte())
             );
 
             $fieldDefinitions[] = $fieldDefinition;
@@ -65,11 +66,12 @@ final readonly class MessageDefinition
 
         $developerFieldDefinitions = [];
         $developerDataSize = 0;
-        if (($recordHeader & MaskEnum::DEV_DATA_MASK->value) === MaskEnum::DEV_DATA_MASK->value) {
+
+        if (($recordHeader & Mask::DEV_MESG_MASK->value) === Mask::DEV_MESG_MASK->value) {
             $numDevFields = $stream->readByte();
 
             for ($i = 0; $i < $numDevFields; ++$i) {
-                $developerFieldDefinition = DeveloperFieldDefinition::create(
+                $developerFieldDefinition = DeveloperField::create(
                     $stream->readByte(),
                     $stream->readByte(),
                     $stream->readByte(),
@@ -79,7 +81,7 @@ final readonly class MessageDefinition
             }
         }
 
-        $messageProfile = $messageProfiles[$globalMessageNumber] ?? MessageProfile::fromArray([
+        $messageProfile = $profileMessages[$globalMessageNumber] ?? Message::fromArray([
             'name' => 'data_'.$globalMessageNumber,
             'num' => $globalMessageNumber,
             'fields' => [],

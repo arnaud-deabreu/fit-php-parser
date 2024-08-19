@@ -2,16 +2,16 @@
 
 declare(strict_types=1);
 
-namespace FitParser\Messages\Field;
+namespace FitParser\Messages\Definitions;
 
-use FitParser\Enums\BaseTypeEnum;
+use FitParser\Enums\BaseType;
 
-final readonly class FieldDefinition
+final readonly class Field
 {
     private function __construct(
         public int $number,
         public int $size,
-        public BaseTypeEnum $baseType,
+        public BaseType $baseType,
         public float|int $invalidValue,
         public int $baseTypeSize,
     ) {}
@@ -19,14 +19,14 @@ final readonly class FieldDefinition
     public static function create(
         int $number,
         int $size,
-        BaseTypeEnum $baseType,
+        BaseType $baseType,
     ): self {
         return new self(
             $number,
             $size,
             $baseType,
-            BaseTypeEnum::invalidFrom($baseType),
-            BaseTypeEnum::sizeFrom($baseType)
+            BaseType::invalidFrom($baseType),
+            BaseType::sizeFrom($baseType)
         );
     }
 }

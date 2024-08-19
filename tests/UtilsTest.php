@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace FitParser\Tests;
 
-use FitParser\Enums\BaseTypeEnum;
+use FitParser\Enums\BaseType;
 use FitParser\Utils;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
@@ -52,8 +52,8 @@ final class UtilsTest extends TestCase
 
     public function testOnlyInvalidValuesWithArray(): void
     {
-        $baseType = BaseTypeEnum::STRING;
-        $invalidValue = BaseTypeEnum::invalidFrom($baseType);
+        $baseType = BaseType::STRING;
+        $invalidValue = BaseType::invalidFrom($baseType);
 
         $values = [$invalidValue, $invalidValue];
         $result = Utils::onlyInvalidValues($values, $baseType);
@@ -62,8 +62,8 @@ final class UtilsTest extends TestCase
 
     public function testOnlyInvalidValuesWithArrayHavingValidValue(): void
     {
-        $baseType = BaseTypeEnum::STRING;
-        $invalidValue = BaseTypeEnum::invalidFrom($baseType);
+        $baseType = BaseType::STRING;
+        $invalidValue = BaseType::invalidFrom($baseType);
 
         $values = [$invalidValue, 42];
         $result = Utils::onlyInvalidValues($values, $baseType);
@@ -72,8 +72,8 @@ final class UtilsTest extends TestCase
 
     public function testOnlyInvalidValuesWithNonArray(): void
     {
-        $baseType = BaseTypeEnum::STRING;
-        $invalidValue = BaseTypeEnum::invalidFrom($baseType);
+        $baseType = BaseType::STRING;
+        $invalidValue = BaseType::invalidFrom($baseType);
 
         $value = $invalidValue;
         $result = Utils::onlyInvalidValues($value, $baseType);

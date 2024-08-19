@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace FitParser;
 
-use FitParser\Enums\MaskEnum;
-use FitParser\Messages\Field\Field;
-use FitParser\Messages\Message;
-use FitParser\Messages\MessageDefinition;
-use FitParser\Messages\MessageProfile;
-use FitParser\Messages\MessageProfileFactory;
+use FitParser\Enums\Mask;
+use FitParser\Messages\DefinitionMessage;
+use FitParser\Messages\Profile\Message;
+use FitParser\Messages\ProfileMessageFactory;
+use FitParser\Records\Field;
+use FitParser\Records\Record;
 use Symfony\Component\String\ByteString;
 
 final class Parser
@@ -23,19 +23,19 @@ final class Parser
     private ByteString $fileContents;
 
     /**
-     * @var MessageProfile[]
+     * @var Message[]
      */
     private array $messageProfiles;
 
     /**
-     * @var MessageDefinition[]
+     * @var DefinitionMessage[]
      */
     private array $localMessageDefinitions = [];
 
     /**
-     * @var Message[]
+     * @var Record[]
      */
-    private array $messages;
+    private array $records;
 
     public function __construct(string $filePath)
     {
@@ -46,7 +46,7 @@ final class Parser
         }
 
         $this->fileContents = new ByteString($fileContent);
-        $this->messageProfiles = MessageProfileFactory::fromJsonFile();
+        $this->messageProfiles = ProfileMessageFactory::fromJsonFile();
 
         $this->stream = new Stream($this->fileContents);
     }
@@ -58,11 +58,11 @@ final class Parser
     }
 
     /**
-     * @return Message[]
+     * @return Record[]
      */
-    public function getMessages(): array
+    public function getRecords(): array
     {
-        return $this->messages;
+        return $this->records;
     }
 
     private function parseHeader(): void
@@ -93,7 +93,7 @@ final class Parser
 
     private function decodeMessageDefinition(): void
     {
-        $messageDefinition = MessageDefinition::create($this->stream, $this->messageProfiles);
+        $messageDefinition = DefinitionMessage::create($this->stream, $this->messageProfiles);
 
         $this->localMessageDefinitions[$messageDefinition->localMesgNum] = $messageDefinition;
     }
@@ -102,16 +102,16 @@ final class Parser
     {
         $recordHeader = $this->stream->readByte();
 
-        $localMesgNum = $recordHeader & MaskEnum::LOCAL_MESG_NUM_MASK->value;
+        $localMesgNum = $recordHeader & Mask::LOCAL_MESG_NUM_MASK->value;
 
         if (false === \array_key_exists($localMesgNum, $this->localMessageDefinitions)) {
-            throw new \RuntimeException("Invalid message definition: {$localMesgNum}");
+            throw new \RuntimeException("Invalid record definition: {$localMesgNum}");
         }
 
         $messageDefinition = $this->localMessageDefinitions[$localMesgNum];
-        $fields = $messageDefinition->messageProfile->fields;
+        $fields = $messageDefinition->profileMessage->fields;
 
-        $message = Message::create();
+        $record = Record::create();
 
         foreach ($messageDefinition->fieldDefinitions as $fieldDefinition) {
             $field = $fields[$fieldDefinition->number] ?? null;
@@ -123,10 +123,9 @@ final class Parser
             );
 
             if (null !== $rawValue) {
-                $message->addField(
+                $record->addField(
                     Field::create(
                         null !== $field ? $field->name : 'data_'.$fieldDefinition->number,
-                        $fieldDefinition,
                         $rawValue,
                         $field,
                     )
@@ -141,8 +140,6 @@ final class Parser
         // expandSubFields
         // expandComponents
 
-        $message->transformValues();
-
-        $this->messages[] = $message;
+        $this->records[] = $record;
     }
 }
