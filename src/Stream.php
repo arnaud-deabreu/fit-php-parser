@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace FitParser;
 
-use FitParser\Enums\BaseTypeEnum;
+use FitParser\Enums\BaseType;
 use Symfony\Component\String\ByteString;
 
 final class Stream
@@ -34,7 +34,7 @@ final class Stream
     {
         $bytes = $this->string->slice($this->position, $this->position + 1)->toString();
 
-        $uint8 = unpack(BaseTypeEnum::unpackFormatFrom(BaseTypeEnum::UINT8).'uint8', $bytes);
+        $uint8 = unpack(BaseType::unpackFormatFrom(BaseType::UINT8).'uint8', $bytes);
 
         if (false === $uint8 || false === \array_key_exists('uint8', $uint8)) {
             throw new \RuntimeException('Invalid uint8 format');
@@ -50,7 +50,7 @@ final class Stream
 
     public function readUInt8(): int
     {
-        $uint8 = $this->readValue(BaseTypeEnum::UINT8, 1);
+        $uint8 = $this->readValue(BaseType::UINT8, 1);
 
         if (false === \is_int($uint8)) {
             throw new \RuntimeException('Invalid uint8 format');
@@ -61,7 +61,7 @@ final class Stream
 
     public function readUInt16(bool $littleEndian = true): int
     {
-        $uint16 = $this->readValue(BaseTypeEnum::UINT16, 2, $littleEndian);
+        $uint16 = $this->readValue(BaseType::UINT16, 2, $littleEndian);
 
         if (false === \is_int($uint16)) {
             throw new \RuntimeException('Invalid uint16 format');
@@ -70,18 +70,18 @@ final class Stream
         return $uint16;
     }
 
-    public function readValue(BaseTypeEnum $baseType, int $size, bool $littleEndian = true): null|float|int|string
+    public function readValue(BaseType $baseType, int $size, bool $littleEndian = true): null|float|int|string
     {
         $bytes = $this->readBytes($size);
 
-        $baseTypeSize = BaseTypeEnum::sizeFrom($baseType);
-        $baseTypeInvalid = BaseTypeEnum::invalidFrom($baseType);
+        $baseTypeSize = BaseType::sizeFrom($baseType);
+        $baseTypeInvalid = BaseType::invalidFrom($baseType);
 
         if (0 !== $size % $baseTypeSize) {
             return $baseTypeInvalid;
         }
 
-        if (BaseTypeEnum::STRING === $baseType) {
+        if (BaseType::STRING === $baseType) {
             $string = $bytes->toString();
             $string = str_replace("\u{FFFD}", '', $string);
             $strings = explode("\0", $string);
@@ -101,7 +101,7 @@ final class Stream
 
         for ($i = 0; $i < $size / $baseTypeSize; ++$i) {
             $value = unpack(
-                BaseTypeEnum::unpackFormatFrom($baseType, $littleEndian).'value',
+                BaseType::unpackFormatFrom($baseType, $littleEndian).'value',
                 $bytes->slice($i * $baseTypeSize, $baseTypeSize)->toString()
             );
 

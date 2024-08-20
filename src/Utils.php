@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace FitParser;
 
-use FitParser\Enums\BaseTypeEnum;
+use FitParser\Enums\BaseType;
 
 final readonly class Utils
 {
@@ -21,7 +21,13 @@ final readonly class Utils
 
         $values = array_filter($values, static fn ($value) => null !== $value);
 
-        return $values[0] ?? null;
+        $sanitizedVaue = reset($values);
+
+        if (false === $sanitizedVaue) {
+            return null;
+        }
+
+        return $sanitizedVaue;
     }
 
     /**
@@ -32,9 +38,9 @@ final readonly class Utils
         return array_reduce($values, static fn ($state, $value) => null !== $value ? false : $state, true);
     }
 
-    public static function onlyInvalidValues(mixed $rawFieldValue, BaseTypeEnum $baseType): bool
+    public static function onlyInvalidValues(mixed $rawFieldValue, BaseType $baseType): bool
     {
-        $invalidValue = BaseTypeEnum::invalidFrom($baseType);
+        $invalidValue = BaseType::invalidFrom($baseType);
 
         if (\is_array($rawFieldValue)) {
             return array_reduce($rawFieldValue, static fn ($state, $value) => $value !== $invalidValue ? false : $state, true);

@@ -22,6 +22,6 @@ final class ParserTest extends TestCase
         $parser = new Parser($filePath);
         $parser->parse();
 
-        Assert::assertNotEmpty($parser->getMessages());
+        Assert::assertNotEmpty($parser->getRecords());
     }
 }

@@ -35,7 +35,7 @@ use FitParser\Parser;
 $parser = new Parser('path/to/fit/file.fit');
 $parser->parse();
 
-$parser->getMessages(); // FitParser\Messages\Message[]
+$parser->getRecords(); // FitParser\Records\Record[]
 ```
 
 ## License

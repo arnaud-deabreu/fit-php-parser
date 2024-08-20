@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace FitParser\Enums;
 
-enum BaseTypeEnum: int
+enum BaseType: int
 {
     case ENUM = 0x00;
     case SINT8 = 0x01;
@@ -24,7 +24,7 @@ enum BaseTypeEnum: int
     case UINT64 = 0x8F;
     case UINT64Z = 0x9;
 
-    public static function sizeFrom(BaseTypeEnum $baseType): int
+    public static function sizeFrom(BaseType $baseType): int
     {
         return match ($baseType) {
             self::ENUM,
@@ -47,7 +47,7 @@ enum BaseTypeEnum: int
         };
     }
 
-    public static function invalidFrom(BaseTypeEnum $baseType): float|int
+    public static function invalidFrom(BaseType $baseType): float|int
     {
         return match ($baseType) {
             self::ENUM,
@@ -70,7 +70,7 @@ enum BaseTypeEnum: int
         };
     }
 
-    public static function unpackFormatFrom(BaseTypeEnum $baseType, bool $littleEndian = true): string
+    public static function unpackFormatFrom(BaseType $baseType, bool $littleEndian = true): string
     {
         return match ($baseType) {
             self::ENUM,
@@ -116,7 +116,7 @@ enum BaseTypeEnum: int
         };
     }
 
-    public static function isNumeric(BaseTypeEnum $baseType): bool
+    public static function isNumeric(BaseType $baseType): bool
     {
         return self::STRING !== $baseType;
     }

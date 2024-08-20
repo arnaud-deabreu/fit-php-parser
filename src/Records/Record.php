@@ -2,11 +2,9 @@
 
 declare(strict_types=1);
 
-namespace FitParser\Messages;
+namespace FitParser\Records;
 
-use FitParser\Messages\Field\Field;
-
-final class Message
+final class Record
 {
     private function __construct(
         /**
@@ -34,12 +32,5 @@ final class Message
     public function getFields(): array
     {
         return $this->fields;
-    }
-
-    public function transformValues(): void
-    {
-        foreach ($this->fields as $field) {
-            $field->transformValue();
-        }
     }
 }

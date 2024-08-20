@@ -2,11 +2,9 @@
 
 declare(strict_types=1);
 
-namespace FitParser\Messages;
+namespace FitParser\Messages\Profile;
 
-use FitParser\Messages\Profile\Field;
-
-final readonly class MessageProfile
+final readonly class Message
 {
     private function __construct(
         public string $name,
