@@ -120,4 +120,27 @@ enum BaseType: int
     {
         return self::STRING !== $baseType;
     }
+
+    public static function isInt(BaseType $baseType): bool
+    {
+        return match ($baseType) {
+            self::BYTE,
+            self::STRING,
+            self::FLOAT32,
+            self::FLOAT64,
+            self::ENUM => false,
+            self::SINT8,
+            self::UINT8Z,
+            self::UINT8,
+            self::SINT16,
+            self::UINT16,
+            self::UINT16Z,
+            self::SINT32,
+            self::UINT32,
+            self::UINT32Z,
+            self::SINT64,
+            self::UINT64,
+            self::UINT64Z => true,
+        };
+    }
 }

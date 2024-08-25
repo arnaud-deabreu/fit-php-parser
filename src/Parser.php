@@ -67,8 +67,7 @@ final class Parser
 
     private function parseHeader(): void
     {
-        $this->header = Header::fromByteString($this->fileContents);
-        $this->stream->seek($this->header->headerSize);
+        $this->header = Header::fromStream($this->stream);
     }
 
     private function parseRecords(): void

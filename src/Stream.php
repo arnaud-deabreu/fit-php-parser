@@ -9,7 +9,7 @@ use Symfony\Component\String\ByteString;
 
 final class Stream
 {
-    private int $position;
+    private int $position = 0;
 
     public function __construct(
         private readonly ByteString $string
@@ -50,24 +50,17 @@ final class Stream
 
     public function readUInt8(): int
     {
-        $uint8 = $this->readValue(BaseType::UINT8, 1);
-
-        if (false === \is_int($uint8)) {
-            throw new \RuntimeException('Invalid uint8 format');
-        }
-
-        return $uint8;
+        return $this->readInt(BaseType::UINT8);
     }
 
     public function readUInt16(bool $littleEndian = true): int
     {
-        $uint16 = $this->readValue(BaseType::UINT16, 2, $littleEndian);
+        return $this->readInt(BaseType::UINT16, $littleEndian);
+    }
 
-        if (false === \is_int($uint16)) {
-            throw new \RuntimeException('Invalid uint16 format');
-        }
-
-        return $uint16;
+    public function readUInt32(bool $littleEndian = true): int
+    {
+        return $this->readInt(BaseType::UINT32, $littleEndian);
     }
 
     public function readValue(BaseType $baseType, int $size, bool $littleEndian = true): null|float|int|string
@@ -83,7 +76,6 @@ final class Stream
 
         if (BaseType::STRING === $baseType) {
             $string = $bytes->toString();
-            $string = str_replace("\u{FFFD}", '', $string);
             $strings = explode("\0", $string);
 
             while ('' === end($strings)) {
@@ -115,15 +107,45 @@ final class Stream
         return Utils::sanitizeValues($values);
     }
 
-    private function readBytes(int $size): ByteString
+    public function readBytes(int $size): ByteString
     {
         if ($this->position + $size >= $this->string->length()) {
             throw new \RuntimeException(\sprintf('End of stream at byte %d', $this->position));
         }
 
-        $bytes = $this->string->slice($this->position, $this->position + $size);
+        $bytes = $this->string->slice($this->position, $size);
         $this->position += $size;
 
         return $bytes;
+    }
+
+    public function readString(int $size): string
+    {
+        $value = $this->readValue(BaseType::STRING, $size);
+
+        if (false === \is_string($value)) {
+            throw new \RuntimeException('Invalid string format');
+        }
+
+        return $value;
+    }
+
+    private function readInt(BaseType $baseType, bool $littleEndian = true): int
+    {
+        if (false === BaseType::isInt($baseType)) {
+            throw new \RuntimeException('Invalid int format');
+        }
+
+        $int = $this->readValue(
+            $baseType,
+            BaseType::sizeFrom($baseType),
+            $littleEndian,
+        );
+
+        if (false === \is_int($int)) {
+            throw new \RuntimeException('Invalid int format');
+        }
+
+        return $int;
     }
 }
