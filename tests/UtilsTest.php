@@ -9,9 +9,6 @@ use FitParser\Utils;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
 
-/**
- * @internal
- */
 #[CoversClass(Utils::class)]
 final class UtilsTest extends TestCase
 {
@@ -86,7 +83,7 @@ final class UtilsTest extends TestCase
         $result = Utils::convertFITDateTime($datetime);
 
         $expected = new \DateTimeImmutable('@'.(631072771 + $datetime));
-        self::assertSame($expected, $result);
+        self::assertEquals($expected, $result);
     }
 
     public function testConvertFITDateTimeWithInvalidValue(): void
