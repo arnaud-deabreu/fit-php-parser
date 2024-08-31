@@ -22,6 +22,8 @@ final class Parser
 
     private ByteString $fileContents;
 
+    private CrcChecker $crcChecker;
+
     /**
      * @var Message[]
      */
@@ -45,10 +47,13 @@ final class Parser
             throw new \RuntimeException("Unable to read the file: {$filePath}");
         }
 
+        $this->crcChecker = new CrcChecker();
         $this->fileContents = new ByteString($fileContent);
         $this->messageProfiles = ProfileMessageFactory::fromJsonFile();
-
-        $this->stream = new Stream($this->fileContents);
+        $this->stream = new Stream(
+            $this->fileContents,
+            $this->crcChecker,
+        );
     }
 
     public function parse(): void
@@ -74,6 +79,10 @@ final class Parser
     {
         while ($this->header->headerSize + $this->header->dataSize > $this->stream->position()) {
             $this->decodeNextRecord();
+        }
+
+        if ($this->crcChecker->getChecksum() !== $this->stream->readUInt16()) {
+            throw new \RuntimeException('Invalid CRC checksum');
         }
     }
 

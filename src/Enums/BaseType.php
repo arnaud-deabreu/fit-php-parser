@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace FitParser\Enums;
 
+use Symfony\Component\String\ByteString;
+
 enum BaseType: int
 {
     case ENUM = 0x00;
@@ -142,5 +144,22 @@ enum BaseType: int
             self::UINT64,
             self::UINT64Z => true,
         };
+    }
+
+    public static function unpackFrom(BaseType $baseType, ByteString $string): float|int|string
+    {
+        $value = unpack(BaseType::unpackFormatFrom($baseType).'value', $string->toString());
+
+        if (false === $value || false === \array_key_exists('value', $value)) {
+            throw new \RuntimeException(
+                \sprintf(
+                    'Unable to unpack value from BaseType (%s) : %s',
+                    $baseType->name,
+                    $string->toString()
+                )
+            );
+        }
+
+        return $value['value'];
     }
 }

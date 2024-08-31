@@ -11,6 +11,7 @@ $rules = [
     '@PhpCsFixer' => true,
     '@PhpCsFixer:risky' => true,
     'declare_strict_types' => true,
+    'php_unit_internal_class' => false,
 ];
 
 $finder = Finder::create()

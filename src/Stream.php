@@ -12,7 +12,8 @@ final class Stream
     private int $position = 0;
 
     public function __construct(
-        private readonly ByteString $string
+        private readonly ByteString $string,
+        private readonly CrcChecker $crcChecker,
     ) {}
 
     public function position(): int
@@ -109,12 +110,14 @@ final class Stream
 
     public function readBytes(int $size): ByteString
     {
-        if ($this->position + $size >= $this->string->length()) {
+        if ($this->position + $size > $this->string->length()) {
             throw new \RuntimeException(\sprintf('End of stream at byte %d', $this->position));
         }
 
         $bytes = $this->string->slice($this->position, $size);
         $this->position += $size;
+
+        $this->crcChecker->addBuffer($bytes);
 
         return $bytes;
     }
