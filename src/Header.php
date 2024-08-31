@@ -26,7 +26,7 @@ final readonly class Header
             throw new \RuntimeException('Invalid header size');
         }
 
-        return new self(
+        $header = new self(
             protocolVersion: $stream->readByte(),
             profileVersion: $stream->readUInt16(),
             dataSize: $stream->readUInt32(),
@@ -34,5 +34,11 @@ final readonly class Header
             crc: self::HEADER_SIZE_WITH_CRC === $headerSize ? $stream->readUInt16() : 0,
             headerSize: $headerSize,
         );
+
+        if ('.FIT' !== $header->dataType) {
+            throw new \RuntimeException('Unable to validate that header is a FIT file');
+        }
+
+        return $header;
     }
 }
