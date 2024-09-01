@@ -39,14 +39,8 @@ final class Parser
      */
     private array $records;
 
-    public function __construct(string $filePath)
+    public function __construct(string $fileContent)
     {
-        $fileContent = file_get_contents($filePath);
-
-        if (false === $fileContent) {
-            throw new \RuntimeException("Unable to read the file: {$filePath}");
-        }
-
         $this->crcChecker = new CrcChecker();
         $this->fileContents = new ByteString($fileContent);
         $this->messageProfiles = ProfileMessageFactory::fromJsonFile();

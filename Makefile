@@ -15,3 +15,7 @@ phpcsfixer:
 .PHONY: fitparser-gen-profile
 fitparser-gen-profile:
 	bin/fit-parser fit-parser:generate:profile
+
+.PHONY: tests
+tests:
+	vendor/bin/phpunit
