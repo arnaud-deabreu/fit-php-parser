@@ -32,7 +32,9 @@ After positioning the file correctly, you can run the `make fitparser-gen-profil
 
 use FitParser\Parser;
 
-$parser = new Parser('path/to/fit/file.fit');
+$parser = new Parser(
+    file_get_contents('path/to/fit/file.fit')
+);
 $parser->parse();
 
 $parser->getRecords(); // FitParser\Records\Record[]

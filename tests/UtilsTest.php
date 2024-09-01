@@ -83,7 +83,11 @@ final class UtilsTest extends TestCase
         $result = Utils::convertFITDateTime($datetime);
 
         $expected = new \DateTimeImmutable('@'.(631072771 + $datetime));
-        self::assertEquals($expected, $result);
+
+        self::assertSame(
+            $expected->format('c'),
+            $result->format('c'),
+        );
     }
 
     public function testConvertFITDateTimeWithInvalidValue(): void
