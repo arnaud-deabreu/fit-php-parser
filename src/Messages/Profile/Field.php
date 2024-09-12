@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace FitParser\Messages\Profile;
 
-final readonly class Field
+final readonly class Field implements FieldInterface
 {
     /**
      * @param int[] $array
@@ -46,5 +46,25 @@ final readonly class Field
             $units,
             $accumulate
         );
+    }
+
+    public function getDefinitionNumber(): int
+    {
+        return $this->def;
+    }
+
+    public function getOffset(): int
+    {
+        return $this->offset;
+    }
+
+    public function getScale(): int
+    {
+        return $this->scale;
+    }
+
+    public function getType(): string
+    {
+        return $this->type;
     }
 }

@@ -6,8 +6,6 @@ namespace FitParser;
 
 use FitParser\Enums\Mask;
 use FitParser\Messages\DefinitionMessage;
-use FitParser\Messages\Profile\Message;
-use FitParser\Messages\ProfileMessageFactory;
 use FitParser\Records\Field;
 use FitParser\Records\Record;
 use Symfony\Component\String\ByteString;
@@ -25,11 +23,6 @@ final class Parser
     private CrcChecker $crcChecker;
 
     /**
-     * @var Message[]
-     */
-    private array $messageProfiles;
-
-    /**
      * @var DefinitionMessage[]
      */
     private array $localMessageDefinitions = [];
@@ -43,7 +36,6 @@ final class Parser
     {
         $this->crcChecker = new CrcChecker();
         $this->fileContents = new ByteString($fileContent);
-        $this->messageProfiles = ProfileMessageFactory::fromJsonFile();
         $this->stream = new Stream(
             $this->fileContents,
             $this->crcChecker,
@@ -95,7 +87,7 @@ final class Parser
 
     private function decodeMessageDefinition(): void
     {
-        $messageDefinition = DefinitionMessage::create($this->stream, $this->messageProfiles);
+        $messageDefinition = DefinitionMessage::create($this->stream);
 
         $this->localMessageDefinitions[$messageDefinition->localMesgNum] = $messageDefinition;
     }
@@ -111,7 +103,8 @@ final class Parser
         }
 
         $messageDefinition = $this->localMessageDefinitions[$localMesgNum];
-        $fields = $messageDefinition->profileMessage->fields;
+
+        $fields = iterator_to_array($messageDefinition->profileMessage->getFields());
 
         $record = Record::create();
 
@@ -127,7 +120,7 @@ final class Parser
             if (null !== $rawValue) {
                 $record->addField(
                     Field::create(
-                        null !== $field ? $field->name : 'data_'.$fieldDefinition->number,
+                        null !== $field ? Utils::convertFieldClassName($field::class) : 'data_'.$fieldDefinition->number,
                         $rawValue,
                         $field,
                     )
