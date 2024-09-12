@@ -8,7 +8,9 @@ use FitParser\Enums\BaseType;
 use FitParser\Enums\Mask;
 use FitParser\Messages\Definitions\DeveloperField;
 use FitParser\Messages\Definitions\Field;
-use FitParser\Messages\Profile\Message;
+use FitParser\Messages\Profile\Generated\ProfileMessagesRegistry;
+use FitParser\Messages\Profile\UnknownMessage;
+use FitParser\Messages\Profile\MessageInterface;
 use FitParser\Stream;
 
 final readonly class DefinitionMessage
@@ -31,15 +33,11 @@ final readonly class DefinitionMessage
         public array $developerFieldDefinitions,
         public int $messageSize,
         public int $developerDataSize,
-        public Message $profileMessage,
+        public MessageInterface $profileMessage,
     ) {}
 
-    /**
-     * @param Message[] $profileMessages
-     */
     public static function create(
         Stream $stream,
-        array $profileMessages,
     ): self {
         $recordHeader = $stream->readByte();
         $localMesgNum = $recordHeader & Mask::LOCAL_MESG_NUM_MASK->value;
@@ -81,11 +79,12 @@ final readonly class DefinitionMessage
             }
         }
 
-        $messageProfile = $profileMessages[$globalMessageNumber] ?? Message::fromArray([
-            'name' => 'data_'.$globalMessageNumber,
-            'num' => $globalMessageNumber,
-            'fields' => [],
-        ]);
+        $messageProfile = self::getMessageProfile($globalMessageNumber) ?? UnknownMessage::create();
+
+        if($messageProfile instanceof UnknownMessage){
+            $messageProfile->name = 'data_'.$globalMessageNumber;
+            $messageProfile->num = $globalMessageNumber;
+        }
 
         return new self(
             $recordHeader,
@@ -99,7 +98,18 @@ final readonly class DefinitionMessage
             $developerFieldDefinitions,
             $messageSize,
             $developerDataSize,
-            $messageProfile
+            $messageProfile,
         );
+    }
+
+    private static function getMessageProfile(int $globalMessageNumber): ?MessageInterface
+    {
+        $messages = (new ProfileMessagesRegistry())->getMessages();
+
+        if (false === \array_key_exists($globalMessageNumber, $messages)) {
+            return null;
+        }
+
+        return $messages[$globalMessageNumber]::create();
     }
 }

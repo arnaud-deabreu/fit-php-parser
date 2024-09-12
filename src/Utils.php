@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace FitParser;
 
 use FitParser\Enums\BaseType;
+use Symfony\Component\String\UnicodeString;
 
 final readonly class Utils
 {
@@ -58,5 +59,10 @@ final readonly class Utils
         }
 
         return $dateTimeImmutable;
+    }
+
+    public static function convertFieldClassName(string $className): string
+    {
+        return (new UnicodeString($className))->replace('FitParser\Messages\Profile\Generated\\','')->snake()->toString();
     }
 }
