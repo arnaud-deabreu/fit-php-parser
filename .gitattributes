@@ -1,11 +1,11 @@
 /bin export-ignore
 /src/Command export-ignore
 /data export-ignore
-/Makefile
-/phpstan.neon
+/Makefile export-ignore
+/phpstan.neon export-ignore
 /phpunit.xml.dist export-ignore
 /tests export-ignore
 /.gitattributes export-ignore
-/.github
+/.github export-ignore
 /.gitignore export-ignore
-/.php-cs-fixer.php
+/.php-cs-fixer.php export-ignore
