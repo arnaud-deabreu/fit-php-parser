@@ -25,8 +25,7 @@ final readonly class CyclesToDistance implements FieldInterface
         public string $units = 'm/cycle',
         public int $bits = 0,
         public bool $accumulate = false,
-    ) {
-    }
+    ) {}
 
     public function getDefinitionNumber(): int
     {

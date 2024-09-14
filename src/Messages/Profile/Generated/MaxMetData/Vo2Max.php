@@ -25,8 +25,7 @@ final readonly class Vo2Max implements FieldInterface
         public string $units = 'mL/kg/min',
         public int $bits = 0,
         public bool $accumulate = false,
-    ) {
-    }
+    ) {}
 
     public function getDefinitionNumber(): int
     {

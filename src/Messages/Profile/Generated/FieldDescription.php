@@ -42,8 +42,7 @@ final readonly class FieldDescription implements MessageInterface
         public FitBaseUnitId $fitBaseUnitId,
         public NativeMesgNum $nativeMesgNum,
         public NativeFieldNum $nativeFieldNum,
-    ) {
-    }
+    ) {}
 
     public static function create(): self
     {

@@ -26,8 +26,7 @@ final readonly class MonitoringInfo implements MessageInterface
         public CyclesToDistance $cyclesToDistance,
         public CyclesToCalories $cyclesToCalories,
         public RestingMetabolicRate $restingMetabolicRate,
-    ) {
-    }
+    ) {}
 
     public static function create(): self
     {

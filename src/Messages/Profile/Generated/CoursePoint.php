@@ -30,8 +30,7 @@ final readonly class CoursePoint implements MessageInterface
         public Type $type,
         public Name $name,
         public Favorite $favorite,
-    ) {
-    }
+    ) {}
 
     public static function create(): self
     {

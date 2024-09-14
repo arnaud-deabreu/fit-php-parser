@@ -32,8 +32,7 @@ final readonly class MagnetometerData implements MessageInterface
         public CalibratedMagX $calibratedMagX,
         public CalibratedMagY $calibratedMagY,
         public CalibratedMagZ $calibratedMagZ,
-    ) {
-    }
+    ) {}
 
     public static function create(): self
     {

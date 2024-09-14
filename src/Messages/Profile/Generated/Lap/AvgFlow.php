@@ -25,8 +25,7 @@ final readonly class AvgFlow implements FieldInterface
         public string $units = 'Flow',
         public int $bits = 0,
         public bool $accumulate = false,
-    ) {
-    }
+    ) {}
 
     public function getDefinitionNumber(): int
     {

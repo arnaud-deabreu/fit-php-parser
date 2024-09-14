@@ -25,8 +25,7 @@ final readonly class Value implements FieldInterface
         public string $units = 'degC',
         public int $bits = 0,
         public bool $accumulate = false,
-    ) {
-    }
+    ) {}
 
     public function getDefinitionNumber(): int
     {

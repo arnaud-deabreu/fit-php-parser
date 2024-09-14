@@ -8,8 +8,6 @@ declare(strict_types=1);
 
 namespace FitParser\Messages\Profile\Generated;
 
-use FitParser\Messages\Profile\MessageInterface;
-
 final class ProfileMessagesRegistry
 {
     /** @var class-string[] */

@@ -32,8 +32,7 @@ final readonly class GpsMetadata implements MessageInterface
         public Heading $heading,
         public UtcTimestamp $utcTimestamp,
         public Velocity $velocity,
-    ) {
-    }
+    ) {}
 
     public static function create(): self
     {

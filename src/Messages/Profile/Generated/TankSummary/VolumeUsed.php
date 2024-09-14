@@ -25,8 +25,7 @@ final readonly class VolumeUsed implements FieldInterface
         public string $units = 'L',
         public int $bits = 0,
         public bool $accumulate = false,
-    ) {
-    }
+    ) {}
 
     public function getDefinitionNumber(): int
     {

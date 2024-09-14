@@ -18,8 +18,7 @@ final readonly class HsaEvent implements MessageInterface
     private function __construct(
         public Timestamp $timestamp,
         public EventId $eventId,
-    ) {
-    }
+    ) {}
 
     public static function create(): self
     {

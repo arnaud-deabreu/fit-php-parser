@@ -52,8 +52,7 @@ final readonly class Event implements MessageInterface
         public RadarThreatCount $radarThreatCount,
         public RadarThreatAvgApproachSpeed $radarThreatAvgApproachSpeed,
         public RadarThreatMaxApproachSpeed $radarThreatMaxApproachSpeed,
-    ) {
-    }
+    ) {}
 
     public static function create(): self
     {

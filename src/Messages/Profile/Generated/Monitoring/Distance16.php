@@ -25,8 +25,7 @@ final readonly class Distance16 implements FieldInterface
         public string $units = '100 * m',
         public int $bits = 0,
         public bool $accumulate = false,
-    ) {
-    }
+    ) {}
 
     public function getDefinitionNumber(): int
     {

@@ -38,8 +38,7 @@ final readonly class AviationAttitude implements MessageInterface
         public AttitudeStageComplete $attitudeStageComplete,
         public Track $track,
         public Validity $validity,
-    ) {
-    }
+    ) {}
 
     public static function create(): self
     {

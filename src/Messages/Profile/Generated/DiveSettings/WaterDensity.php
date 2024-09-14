@@ -25,8 +25,7 @@ final readonly class WaterDensity implements FieldInterface
         public string $units = 'kg/m^3',
         public int $bits = 0,
         public bool $accumulate = false,
-    ) {
-    }
+    ) {}
 
     public function getDefinitionNumber(): int
     {

@@ -140,8 +140,8 @@ use FitParser\Messages\Profile\Generated\Session\TimeInCadenceZone;
 use FitParser\Messages\Profile\Generated\Session\TimeInHrZone;
 use FitParser\Messages\Profile\Generated\Session\TimeInPowerZone;
 use FitParser\Messages\Profile\Generated\Session\TimeInSpeedZone;
-use FitParser\Messages\Profile\Generated\Session\TimeStanding;
 use FitParser\Messages\Profile\Generated\Session\Timestamp;
+use FitParser\Messages\Profile\Generated\Session\TimeStanding;
 use FitParser\Messages\Profile\Generated\Session\TotalAnaerobicTrainingEffect;
 use FitParser\Messages\Profile\Generated\Session\TotalAscent;
 use FitParser\Messages\Profile\Generated\Session\TotalCalories;
@@ -326,8 +326,7 @@ final readonly class Session implements MessageInterface
         public AvgCoreTemperature $avgCoreTemperature,
         public MinCoreTemperature $minCoreTemperature,
         public MaxCoreTemperature $maxCoreTemperature,
-    ) {
-    }
+    ) {}
 
     public static function create(): self
     {

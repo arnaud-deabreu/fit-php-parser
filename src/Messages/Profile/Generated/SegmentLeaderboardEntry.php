@@ -28,8 +28,7 @@ final readonly class SegmentLeaderboardEntry implements MessageInterface
         public ActivityId $activityId,
         public SegmentTime $segmentTime,
         public ActivityIdString $activityIdString,
-    ) {
-    }
+    ) {}
 
     public static function create(): self
     {

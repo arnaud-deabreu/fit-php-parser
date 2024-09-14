@@ -25,8 +25,7 @@ final readonly class CurrentActivityTypeIntensity implements FieldInterface
         public string $units = '',
         public int $bits = 5,
         public bool $accumulate = false,
-    ) {
-    }
+    ) {}
 
     public function getDefinitionNumber(): int
     {

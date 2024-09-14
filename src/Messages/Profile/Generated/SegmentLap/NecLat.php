@@ -25,8 +25,7 @@ final readonly class NecLat implements FieldInterface
         public string $units = 'semicircles',
         public int $bits = 0,
         public bool $accumulate = false,
-    ) {
-    }
+    ) {}
 
     public function getDefinitionNumber(): int
     {

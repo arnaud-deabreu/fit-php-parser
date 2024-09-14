@@ -25,8 +25,7 @@ final readonly class StressLevelTime implements FieldInterface
         public string $units = 's',
         public int $bits = 0,
         public bool $accumulate = false,
-    ) {
-    }
+    ) {}
 
     public function getDefinitionNumber(): int
     {

@@ -20,8 +20,7 @@ final readonly class HsaStepData implements MessageInterface
         public Timestamp $timestamp,
         public ProcessingInterval $processingInterval,
         public Steps $steps,
-    ) {
-    }
+    ) {}
 
     public static function create(): self
     {

@@ -20,8 +20,7 @@ final readonly class VideoFrame implements MessageInterface
         public Timestamp $timestamp,
         public TimestampMs $timestampMs,
         public FrameNumber $frameNumber,
-    ) {
-    }
+    ) {}
 
     public static function create(): self
     {

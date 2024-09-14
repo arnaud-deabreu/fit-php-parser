@@ -6,7 +6,7 @@ phpstan:
 
 .PHONY: phpcsfixer-dryrun
 phpcsfixer-dryrun:
-	$(PHPCSFIXER) --dry-run
+	$(PHPCSFIXER) --dry-run --stop-on-violation --diff
 
 .PHONY: phpcsfixer
 phpcsfixer:

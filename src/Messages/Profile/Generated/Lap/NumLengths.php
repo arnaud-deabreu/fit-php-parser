@@ -25,8 +25,7 @@ final readonly class NumLengths implements FieldInterface
         public string $units = 'lengths',
         public int $bits = 0,
         public bool $accumulate = false,
-    ) {
-    }
+    ) {}
 
     public function getDefinitionNumber(): int
     {

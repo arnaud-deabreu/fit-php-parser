@@ -25,8 +25,7 @@ final readonly class AvgCadence implements FieldInterface
         public string $units = 'rpm',
         public int $bits = 0,
         public bool $accumulate = false,
-    ) {
-    }
+    ) {}
 
     public function getDefinitionNumber(): int
     {

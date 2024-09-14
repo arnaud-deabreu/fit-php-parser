@@ -40,8 +40,8 @@ jobs:
     - name: Run phpstan
       run: make phpstan
 
-    - name: Run phpcsfixer
-      run: make phpcsfixer
+    - name: Run phpcsfixer (dry run)
+      run: make phpcsfixer-dryrun
 
     - name: Run phpunit tests
       run: make tests

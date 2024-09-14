@@ -18,8 +18,7 @@ final readonly class SlaveDevice implements MessageInterface
     private function __construct(
         public Manufacturer $manufacturer,
         public Product $product,
-    ) {
-    }
+    ) {}
 
     public static function create(): self
     {

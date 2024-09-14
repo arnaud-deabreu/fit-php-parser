@@ -63,6 +63,6 @@ final readonly class Utils
 
     public static function convertFieldClassName(string $className): string
     {
-        return (new UnicodeString($className))->replace('FitParser\Messages\Profile\Generated\\','')->snake()->toString();
+        return (new UnicodeString($className))->replace('FitParser\Messages\Profile\Generated\\', '')->snake()->toString();
     }
 }

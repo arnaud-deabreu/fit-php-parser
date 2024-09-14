@@ -20,8 +20,7 @@ final readonly class MonitoringHrData implements MessageInterface
         public Timestamp $timestamp,
         public RestingHeartRate $restingHeartRate,
         public CurrentDayRestingHeartRate $currentDayRestingHeartRate,
-    ) {
-    }
+    ) {}
 
     public static function create(): self
     {

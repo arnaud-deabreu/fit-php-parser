@@ -28,8 +28,7 @@ final readonly class FileId implements MessageInterface
         public TimeCreated $timeCreated,
         public Number $number,
         public ProductName $productName,
-    ) {
-    }
+    ) {}
 
     public static function create(): self
     {

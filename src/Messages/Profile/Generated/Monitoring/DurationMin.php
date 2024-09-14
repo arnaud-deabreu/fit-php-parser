@@ -25,8 +25,7 @@ final readonly class DurationMin implements FieldInterface
         public string $units = 'min',
         public int $bits = 0,
         public bool $accumulate = false,
-    ) {
-    }
+    ) {}
 
     public function getDefinitionNumber(): int
     {

@@ -60,8 +60,7 @@ final readonly class DiveSummary implements MessageInterface
         public MaxAscentRate $maxAscentRate,
         public MaxDescentRate $maxDescentRate,
         public HangTime $hangTime,
-    ) {
-    }
+    ) {}
 
     public static function create(): self
     {

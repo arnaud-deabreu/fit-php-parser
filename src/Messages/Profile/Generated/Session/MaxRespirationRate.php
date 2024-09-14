@@ -25,8 +25,7 @@ final readonly class MaxRespirationRate implements FieldInterface
         public string $units = '',
         public int $bits = 8,
         public bool $accumulate = false,
-    ) {
-    }
+    ) {}
 
     public function getDefinitionNumber(): int
     {

@@ -37,8 +37,8 @@ use FitParser\Messages\Profile\Generated\BikeProfile\PowerEnabled;
 use FitParser\Messages\Profile\Generated\BikeProfile\RearGear;
 use FitParser\Messages\Profile\Generated\BikeProfile\RearGearNum;
 use FitParser\Messages\Profile\Generated\BikeProfile\ShimanoDi2Enabled;
-use FitParser\Messages\Profile\Generated\BikeProfile\SpdEnabled;
 use FitParser\Messages\Profile\Generated\BikeProfile\SpdcadEnabled;
+use FitParser\Messages\Profile\Generated\BikeProfile\SpdEnabled;
 use FitParser\Messages\Profile\Generated\BikeProfile\Sport;
 use FitParser\Messages\Profile\Generated\BikeProfile\SubSport;
 use FitParser\Messages\Profile\MessageInterface;
@@ -78,8 +78,7 @@ final readonly class BikeProfile implements MessageInterface
         public RearGearNum $rearGearNum,
         public RearGear $rearGear,
         public ShimanoDi2Enabled $shimanoDi2Enabled,
-    ) {
-    }
+    ) {}
 
     public static function create(): self
     {

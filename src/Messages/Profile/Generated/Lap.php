@@ -113,8 +113,8 @@ use FitParser\Messages\Profile\Generated\Lap\TimeInCadenceZone;
 use FitParser\Messages\Profile\Generated\Lap\TimeInHrZone;
 use FitParser\Messages\Profile\Generated\Lap\TimeInPowerZone;
 use FitParser\Messages\Profile\Generated\Lap\TimeInSpeedZone;
-use FitParser\Messages\Profile\Generated\Lap\TimeStanding;
 use FitParser\Messages\Profile\Generated\Lap\Timestamp;
+use FitParser\Messages\Profile\Generated\Lap\TimeStanding;
 use FitParser\Messages\Profile\Generated\Lap\TotalAscent;
 use FitParser\Messages\Profile\Generated\Lap\TotalCalories;
 use FitParser\Messages\Profile\Generated\Lap\TotalCycles;
@@ -260,8 +260,7 @@ final readonly class Lap implements MessageInterface
         public AvgCoreTemperature $avgCoreTemperature,
         public MinCoreTemperature $minCoreTemperature,
         public MaxCoreTemperature $maxCoreTemperature,
-    ) {
-    }
+    ) {}
 
     public static function create(): self
     {

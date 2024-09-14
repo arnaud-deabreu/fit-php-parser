@@ -30,8 +30,7 @@ final readonly class SdmProfile implements MessageInterface
         public SpeedSource $speedSource,
         public SdmAntIdTransType $sdmAntIdTransType,
         public OdometerRollover $odometerRollover,
-    ) {
-    }
+    ) {}
 
     public static function create(): self
     {

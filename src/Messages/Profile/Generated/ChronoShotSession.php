@@ -28,8 +28,7 @@ final readonly class ChronoShotSession implements MessageInterface
         public ShotCount $shotCount,
         public ProjectileType $projectileType,
         public GrainWeight $grainWeight,
-    ) {
-    }
+    ) {}
 
     public static function create(): self
     {

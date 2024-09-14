@@ -22,8 +22,7 @@ final readonly class ExdScreenConfiguration implements MessageInterface
         public FieldCount $fieldCount,
         public Layout $layout,
         public ScreenEnabled $screenEnabled,
-    ) {
-    }
+    ) {}
 
     public static function create(): self
     {

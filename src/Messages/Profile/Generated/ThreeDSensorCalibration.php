@@ -28,8 +28,7 @@ final readonly class ThreeDSensorCalibration implements MessageInterface
         public LevelShift $levelShift,
         public OffsetCal $offsetCal,
         public OrientationMatrix $orientationMatrix,
-    ) {
-    }
+    ) {}
 
     public static function create(): self
     {

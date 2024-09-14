@@ -25,8 +25,7 @@ final readonly class CompressedAccumulatedPower implements FieldInterface
         public string $units = 'watts',
         public int $bits = 16,
         public bool $accumulate = true,
-    ) {
-    }
+    ) {}
 
     public function getDefinitionNumber(): int
     {

@@ -22,8 +22,7 @@ final readonly class Course implements MessageInterface
         public Name $name,
         public Capabilities $capabilities,
         public SubSport $subSport,
-    ) {
-    }
+    ) {}
 
     public static function create(): self
     {

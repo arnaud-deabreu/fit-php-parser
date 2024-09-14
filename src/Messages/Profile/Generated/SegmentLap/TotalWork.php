@@ -25,8 +25,7 @@ final readonly class TotalWork implements FieldInterface
         public string $units = 'J',
         public int $bits = 0,
         public bool $accumulate = false,
-    ) {
-    }
+    ) {}
 
     public function getDefinitionNumber(): int
     {

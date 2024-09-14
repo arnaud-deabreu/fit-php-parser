@@ -18,8 +18,7 @@ final readonly class StressLevel implements MessageInterface
     private function __construct(
         public StressLevelValue $stressLevelValue,
         public StressLevelTime $stressLevelTime,
-    ) {
-    }
+    ) {}
 
     public static function create(): self
     {

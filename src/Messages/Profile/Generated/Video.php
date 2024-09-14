@@ -20,8 +20,7 @@ final readonly class Video implements MessageInterface
         public Url $url,
         public HostingProvider $hostingProvider,
         public Duration $duration,
-    ) {
-    }
+    ) {}
 
     public static function create(): self
     {

@@ -30,8 +30,7 @@ final readonly class Activity implements MessageInterface
         public EventType $eventType,
         public LocalTimestamp $localTimestamp,
         public EventGroup $eventGroup,
-    ) {
-    }
+    ) {}
 
     public static function create(): self
     {

@@ -34,8 +34,7 @@ final readonly class Totals implements MessageInterface
         public Sessions $sessions,
         public ActiveTime $activeTime,
         public SportIndex $sportIndex,
-    ) {
-    }
+    ) {}
 
     public static function create(): self
     {

@@ -40,8 +40,7 @@ final readonly class Goal implements MessageInterface
         public RecurrenceValue $recurrenceValue,
         public Enabled $enabled,
         public Source $source,
-    ) {
-    }
+    ) {}
 
     public static function create(): self
     {

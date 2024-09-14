@@ -24,8 +24,7 @@ final readonly class FieldCapabilities implements MessageInterface
         public MesgNum $mesgNum,
         public FieldNum $fieldNum,
         public Count $count,
-    ) {
-    }
+    ) {}
 
     public static function create(): self
     {

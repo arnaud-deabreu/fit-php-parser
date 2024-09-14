@@ -20,8 +20,7 @@ final readonly class Software implements MessageInterface
         public MessageIndex $messageIndex,
         public Version $version,
         public PartNumber $partNumber,
-    ) {
-    }
+    ) {}
 
     public static function create(): self
     {

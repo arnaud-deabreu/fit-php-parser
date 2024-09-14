@@ -25,8 +25,7 @@ final readonly class EventTimestamp12 implements FieldInterface
         public string $units = 's',
         public int $bits = 12,
         public bool $accumulate = true,
-    ) {
-    }
+    ) {}
 
     public function getDefinitionNumber(): int
     {

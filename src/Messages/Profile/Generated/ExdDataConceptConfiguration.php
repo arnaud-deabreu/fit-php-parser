@@ -36,8 +36,7 @@ final readonly class ExdDataConceptConfiguration implements MessageInterface
         public Qualifier $qualifier,
         public Descriptor $descriptor,
         public IsSigned $isSigned,
-    ) {
-    }
+    ) {}
 
     public static function create(): self
     {

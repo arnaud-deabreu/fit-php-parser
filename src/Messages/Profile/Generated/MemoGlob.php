@@ -26,8 +26,7 @@ final readonly class MemoGlob implements MessageInterface
         public ParentIndex $parentIndex,
         public FieldNum $fieldNum,
         public Data $data,
-    ) {
-    }
+    ) {}
 
     public static function create(): self
     {

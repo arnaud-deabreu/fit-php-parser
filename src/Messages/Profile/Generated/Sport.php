@@ -20,8 +20,7 @@ final readonly class Sport implements MessageInterface
         public Sport1 $sport,
         public SubSport $subSport,
         public Name $name,
-    ) {
-    }
+    ) {}
 
     public static function create(): self
     {

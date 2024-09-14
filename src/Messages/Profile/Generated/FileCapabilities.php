@@ -26,8 +26,7 @@ final readonly class FileCapabilities implements MessageInterface
         public Directory $directory,
         public MaxCount $maxCount,
         public MaxSize $maxSize,
-    ) {
-    }
+    ) {}
 
     public static function create(): self
     {

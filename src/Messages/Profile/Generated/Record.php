@@ -82,8 +82,8 @@ use FitParser\Messages\Profile\Generated\Record\StrokeType;
 use FitParser\Messages\Profile\Generated\Record\Temperature;
 use FitParser\Messages\Profile\Generated\Record\Time128;
 use FitParser\Messages\Profile\Generated\Record\TimeFromCourse;
-use FitParser\Messages\Profile\Generated\Record\TimeToSurface;
 use FitParser\Messages\Profile\Generated\Record\Timestamp;
+use FitParser\Messages\Profile\Generated\Record\TimeToSurface;
 use FitParser\Messages\Profile\Generated\Record\TotalCycles;
 use FitParser\Messages\Profile\Generated\Record\TotalHemoglobinConc;
 use FitParser\Messages\Profile\Generated\Record\TotalHemoglobinConcMax;
@@ -182,8 +182,7 @@ final readonly class Record implements MessageInterface
         public AscentRate $ascentRate,
         public Po2 $po2,
         public CoreTemperature $coreTemperature,
-    ) {
-    }
+    ) {}
 
     public static function create(): self
     {

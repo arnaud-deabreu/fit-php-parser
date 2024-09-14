@@ -28,8 +28,7 @@ final readonly class TimestampCorrelation implements MessageInterface
         public LocalTimestamp $localTimestamp,
         public TimestampMs $timestampMs,
         public SystemTimestampMs $systemTimestampMs,
-    ) {
-    }
+    ) {}
 
     public static function create(): self
     {

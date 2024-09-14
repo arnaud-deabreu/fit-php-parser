@@ -28,8 +28,7 @@ final readonly class VideoClip implements MessageInterface
         public EndTimestampMs $endTimestampMs,
         public ClipStart $clipStart,
         public ClipEnd $clipEnd,
-    ) {
-    }
+    ) {}
 
     public static function create(): self
     {

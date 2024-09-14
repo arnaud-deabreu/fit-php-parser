@@ -26,8 +26,7 @@ final readonly class Hr implements MessageInterface
         public FilteredBpm $filteredBpm,
         public EventTimestamp $eventTimestamp,
         public EventTimestamp12 $eventTimestamp12,
-    ) {
-    }
+    ) {}
 
     public static function create(): self
     {

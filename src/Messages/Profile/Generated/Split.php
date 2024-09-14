@@ -52,8 +52,7 @@ final readonly class Split implements MessageInterface
         public TotalCalories $totalCalories,
         public StartElevation $startElevation,
         public TotalMovingTime $totalMovingTime,
-    ) {
-    }
+    ) {}
 
     public static function create(): self
     {

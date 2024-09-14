@@ -28,8 +28,7 @@ final readonly class HsaAccelerometerData implements MessageInterface
         public AccelY $accelY,
         public AccelZ $accelZ,
         public Timestamp32k $timestamp32k,
-    ) {
-    }
+    ) {}
 
     public static function create(): self
     {

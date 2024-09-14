@@ -46,8 +46,7 @@ final readonly class WeatherConditions implements MessageInterface
         public DayOfWeek $dayOfWeek,
         public HighTemperature $highTemperature,
         public LowTemperature $lowTemperature,
-    ) {
-    }
+    ) {}
 
     public static function create(): self
     {

@@ -28,8 +28,7 @@ final readonly class WorkoutSession implements MessageInterface
         public FirstStepIndex $firstStepIndex,
         public PoolLength $poolLength,
         public PoolLengthUnit $poolLengthUnit,
-    ) {
-    }
+    ) {}
 
     public static function create(): self
     {

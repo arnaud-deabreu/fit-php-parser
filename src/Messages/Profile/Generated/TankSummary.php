@@ -24,8 +24,7 @@ final readonly class TankSummary implements MessageInterface
         public StartPressure $startPressure,
         public EndPressure $endPressure,
         public VolumeUsed $volumeUsed,
-    ) {
-    }
+    ) {}
 
     public static function create(): self
     {

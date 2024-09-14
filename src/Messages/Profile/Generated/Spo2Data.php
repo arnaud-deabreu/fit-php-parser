@@ -22,8 +22,7 @@ final readonly class Spo2Data implements MessageInterface
         public ReadingSpo2 $readingSpo2,
         public ReadingConfidence $readingConfidence,
         public Mode $mode,
-    ) {
-    }
+    ) {}
 
     public static function create(): self
     {

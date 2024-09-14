@@ -22,8 +22,7 @@ final readonly class Capabilities implements MessageInterface
         public Sports $sports,
         public WorkoutsSupported $workoutsSupported,
         public ConnectivitySupported $connectivitySupported,
-    ) {
-    }
+    ) {}
 
     public static function create(): self
     {

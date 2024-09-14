@@ -25,8 +25,7 @@ final readonly class AvgTotalHemoglobinConc implements FieldInterface
         public string $units = 'g/dL',
         public int $bits = 0,
         public bool $accumulate = false,
-    ) {
-    }
+    ) {}
 
     public function getDefinitionNumber(): int
     {

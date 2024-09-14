@@ -4,7 +4,8 @@ declare(strict_types=1);
 
 namespace FitParser\Messages\Profile;
 
-interface FieldInterface {
+interface FieldInterface
+{
     public function getDefinitionNumber(): int;
 
     public function getType(): string;

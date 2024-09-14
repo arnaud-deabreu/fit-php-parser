@@ -52,8 +52,7 @@ final readonly class WorkoutStep implements MessageInterface
         public SecondaryTargetValue $secondaryTargetValue,
         public SecondaryCustomTargetValueLow $secondaryCustomTargetValueLow,
         public SecondaryCustomTargetValueHigh $secondaryCustomTargetValueHigh,
-    ) {
-    }
+    ) {}
 
     public static function create(): self
     {

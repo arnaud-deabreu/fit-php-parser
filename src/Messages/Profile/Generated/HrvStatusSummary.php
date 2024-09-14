@@ -30,8 +30,7 @@ final readonly class HrvStatusSummary implements MessageInterface
         public BaselineBalancedLower $baselineBalancedLower,
         public BaselineBalancedUpper $baselineBalancedUpper,
         public Status $status,
-    ) {
-    }
+    ) {}
 
     public static function create(): self
     {

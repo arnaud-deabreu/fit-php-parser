@@ -25,8 +25,7 @@ final readonly class BaselineBalancedUpper implements FieldInterface
         public string $units = 'ms',
         public int $bits = 0,
         public bool $accumulate = false,
-    ) {
-    }
+    ) {}
 
     public function getDefinitionNumber(): int
     {

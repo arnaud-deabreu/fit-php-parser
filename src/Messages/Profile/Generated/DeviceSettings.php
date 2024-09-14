@@ -60,8 +60,7 @@ final readonly class DeviceSettings implements MessageInterface
         public SmartNotificationDisplayOrientation $smartNotificationDisplayOrientation,
         public TapInterface $tapInterface,
         public TapSensitivity $tapSensitivity,
-    ) {
-    }
+    ) {}
 
     public static function create(): self
     {

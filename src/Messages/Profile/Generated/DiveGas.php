@@ -24,8 +24,7 @@ final readonly class DiveGas implements MessageInterface
         public OxygenContent $oxygenContent,
         public Status $status,
         public Mode $mode,
-    ) {
-    }
+    ) {}
 
     public static function create(): self
     {

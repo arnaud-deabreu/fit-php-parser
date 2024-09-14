@@ -24,8 +24,7 @@ final readonly class HsaBodyBatteryData implements MessageInterface
         public Level $level,
         public Charged $charged,
         public Uncharged $uncharged,
-    ) {
-    }
+    ) {}
 
     public static function create(): self
     {

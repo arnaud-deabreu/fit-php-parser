@@ -22,8 +22,7 @@ final readonly class HsaSpo2Data implements MessageInterface
         public ProcessingInterval $processingInterval,
         public ReadingSpo2 $readingSpo2,
         public Confidence $confidence,
-    ) {
-    }
+    ) {}
 
     public static function create(): self
     {

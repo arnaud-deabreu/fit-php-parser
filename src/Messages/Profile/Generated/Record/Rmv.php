@@ -25,8 +25,7 @@ final readonly class Rmv implements FieldInterface
         public string $units = 'L/min',
         public int $bits = 0,
         public bool $accumulate = false,
-    ) {
-    }
+    ) {}
 
     public function getDefinitionNumber(): int
     {

@@ -58,8 +58,7 @@ final readonly class Length implements MessageInterface
         public EnhancedMaxRespirationRate $enhancedMaxRespirationRate,
         public AvgRespirationRate $avgRespirationRate,
         public MaxRespirationRate $maxRespirationRate,
-    ) {
-    }
+    ) {}
 
     public static function create(): self
     {
