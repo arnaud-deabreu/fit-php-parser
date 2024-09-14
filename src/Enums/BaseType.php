@@ -83,7 +83,7 @@ enum BaseType: int
             self::SINT16 => $littleEndian ? 's' : 'S',
             self::UINT16,
             self::UINT16Z => $littleEndian ? 'v' : 'n',
-            self::SINT32 => $littleEndian ? 'l' : 'L',
+            self::SINT32,
             self::UINT32,
             self::UINT32Z => $littleEndian ? 'V' : 'N',
             self::STRING => 'a*',
