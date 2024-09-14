@@ -385,7 +385,7 @@ class GenerateProfileCommand extends Command
             $messageClasses[$message['num']] = ['class' => $messageClass->getName(), 'namespace' => $messageNamespace->getName()];
         }
 
-        if([] === $messageClasses){
+        if ([] === $messageClasses) {
             throw new \RuntimeException('No message classes found');
         }
 

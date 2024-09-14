@@ -14,5 +14,5 @@ interface MessageInterface
     public function getFields(): iterable;
 
     // TODO
-    //public function getField(int $def): FieldInterface;
+    // public function getField(int $def): FieldInterface;
 }

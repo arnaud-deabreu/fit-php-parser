@@ -9,8 +9,8 @@ use FitParser\Enums\Mask;
 use FitParser\Messages\Definitions\DeveloperField;
 use FitParser\Messages\Definitions\Field;
 use FitParser\Messages\Profile\Generated\ProfileMessagesRegistry;
-use FitParser\Messages\Profile\UnknownMessage;
 use FitParser\Messages\Profile\MessageInterface;
+use FitParser\Messages\Profile\UnknownMessage;
 use FitParser\Stream;
 
 final readonly class DefinitionMessage
@@ -81,7 +81,7 @@ final readonly class DefinitionMessage
 
         $messageProfile = self::getMessageProfile($globalMessageNumber) ?? UnknownMessage::create();
 
-        if($messageProfile instanceof UnknownMessage){
+        if ($messageProfile instanceof UnknownMessage) {
             $messageProfile->name = 'data_'.$globalMessageNumber;
             $messageProfile->num = $globalMessageNumber;
         }
