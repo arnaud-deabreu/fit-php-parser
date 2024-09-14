@@ -25,8 +25,7 @@ final readonly class Cycles implements FieldInterface
         public string $units = 'cycles',
         public int $bits = 8,
         public bool $accumulate = true,
-    ) {
-    }
+    ) {}
 
     public function getDefinitionNumber(): int
     {

@@ -28,8 +28,7 @@ final readonly class ClimbPro implements MessageInterface
         public ClimbNumber $climbNumber,
         public ClimbCategory $climbCategory,
         public CurrentDist $currentDist,
-    ) {
-    }
+    ) {}
 
     public static function create(): self
     {

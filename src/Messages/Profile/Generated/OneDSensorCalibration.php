@@ -26,8 +26,7 @@ final readonly class OneDSensorCalibration implements MessageInterface
         public CalibrationDivisor $calibrationDivisor,
         public LevelShift $levelShift,
         public OffsetCal $offsetCal,
-    ) {
-    }
+    ) {}
 
     public static function create(): self
     {

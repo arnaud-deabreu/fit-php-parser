@@ -25,8 +25,7 @@ final readonly class AvgSwimmingCadence implements FieldInterface
         public string $units = 'strokes/min',
         public int $bits = 0,
         public bool $accumulate = false,
-    ) {
-    }
+    ) {}
 
     public function getDefinitionNumber(): int
     {

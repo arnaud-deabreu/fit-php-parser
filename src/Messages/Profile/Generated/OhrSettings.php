@@ -18,8 +18,7 @@ final readonly class OhrSettings implements MessageInterface
     private function __construct(
         public Timestamp $timestamp,
         public Enabled $enabled,
-    ) {
-    }
+    ) {}
 
     public static function create(): self
     {

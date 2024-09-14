@@ -20,8 +20,7 @@ final readonly class NmeaSentence implements MessageInterface
         public Timestamp $timestamp,
         public TimestampMs $timestampMs,
         public Sentence $sentence,
-    ) {
-    }
+    ) {}
 
     public static function create(): self
     {

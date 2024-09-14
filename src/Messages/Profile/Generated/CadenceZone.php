@@ -20,8 +20,7 @@ final readonly class CadenceZone implements MessageInterface
         public MessageIndex $messageIndex,
         public HighValue $highValue,
         public Name $name,
-    ) {
-    }
+    ) {}
 
     public static function create(): self
     {

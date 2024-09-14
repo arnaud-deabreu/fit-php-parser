@@ -42,8 +42,7 @@ final readonly class WeightScale implements MessageInterface
         public VisceralFatRating $visceralFatRating,
         public UserProfileIndex $userProfileIndex,
         public Bmi $bmi,
-    ) {
-    }
+    ) {}
 
     public static function create(): self
     {

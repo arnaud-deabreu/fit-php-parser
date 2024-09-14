@@ -22,8 +22,7 @@ final readonly class ExerciseTitle implements MessageInterface
         public ExerciseCategory $exerciseCategory,
         public ExerciseName $exerciseName,
         public WktStepName $wktStepName,
-    ) {
-    }
+    ) {}
 
     public static function create(): self
     {

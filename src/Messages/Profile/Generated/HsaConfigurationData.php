@@ -20,8 +20,7 @@ final readonly class HsaConfigurationData implements MessageInterface
         public Timestamp $timestamp,
         public Data $data,
         public DataSize $dataSize,
-    ) {
-    }
+    ) {}
 
     public static function create(): self
     {

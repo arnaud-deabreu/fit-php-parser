@@ -22,8 +22,7 @@ final readonly class BarometerData implements MessageInterface
         public TimestampMs $timestampMs,
         public SampleTimeOffset $sampleTimeOffset,
         public BaroPres $baroPres,
-    ) {
-    }
+    ) {}
 
     public static function create(): self
     {

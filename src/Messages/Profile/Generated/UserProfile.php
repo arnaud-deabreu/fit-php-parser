@@ -72,8 +72,7 @@ final readonly class UserProfile implements MessageInterface
         public UserWalkingStepLength $userWalkingStepLength,
         public DepthSetting $depthSetting,
         public DiveCount $diveCount,
-    ) {
-    }
+    ) {}
 
     public static function create(): self
     {

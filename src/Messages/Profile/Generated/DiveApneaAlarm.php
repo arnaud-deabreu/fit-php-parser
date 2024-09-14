@@ -40,8 +40,7 @@ final readonly class DiveApneaAlarm implements MessageInterface
         public TriggerOnAscent $triggerOnAscent,
         public Repeating $repeating,
         public Speed $speed,
-    ) {
-    }
+    ) {}
 
     public static function create(): self
     {

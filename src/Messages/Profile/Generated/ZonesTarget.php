@@ -24,8 +24,7 @@ final readonly class ZonesTarget implements MessageInterface
         public FunctionalThresholdPower $functionalThresholdPower,
         public HrCalcType $hrCalcType,
         public PwrCalcType $pwrCalcType,
-    ) {
-    }
+    ) {}
 
     public static function create(): self
     {

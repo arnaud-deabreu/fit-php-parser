@@ -24,8 +24,7 @@ final readonly class CameraEvent implements MessageInterface
         public CameraEventType $cameraEventType,
         public CameraFileUuid $cameraFileUuid,
         public CameraOrientation $cameraOrientation,
-    ) {
-    }
+    ) {}
 
     public static function create(): self
     {

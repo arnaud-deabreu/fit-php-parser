@@ -16,8 +16,7 @@ final readonly class Hrv implements MessageInterface
 {
     private function __construct(
         public Time $time,
-    ) {
-    }
+    ) {}
 
     public static function create(): self
     {

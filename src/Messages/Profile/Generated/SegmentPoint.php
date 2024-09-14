@@ -28,8 +28,7 @@ final readonly class SegmentPoint implements MessageInterface
         public Altitude $altitude,
         public LeaderTime $leaderTime,
         public EnhancedAltitude $enhancedAltitude,
-    ) {
-    }
+    ) {}
 
     public static function create(): self
     {

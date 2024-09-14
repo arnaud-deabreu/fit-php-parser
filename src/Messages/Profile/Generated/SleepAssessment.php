@@ -10,9 +10,9 @@ namespace FitParser\Messages\Profile\Generated;
 
 use FitParser\Messages\Profile\FieldInterface;
 use FitParser\Messages\Profile\Generated\SleepAssessment\AverageStressDuringSleep;
-use FitParser\Messages\Profile\Generated\SleepAssessment\AwakeTimeScore;
 use FitParser\Messages\Profile\Generated\SleepAssessment\AwakeningsCount;
 use FitParser\Messages\Profile\Generated\SleepAssessment\AwakeningsCountScore;
+use FitParser\Messages\Profile\Generated\SleepAssessment\AwakeTimeScore;
 use FitParser\Messages\Profile\Generated\SleepAssessment\CombinedAwakeScore;
 use FitParser\Messages\Profile\Generated\SleepAssessment\DeepSleepScore;
 use FitParser\Messages\Profile\Generated\SleepAssessment\InterruptionsScore;
@@ -42,8 +42,7 @@ final readonly class SleepAssessment implements MessageInterface
         public AwakeningsCount $awakeningsCount,
         public InterruptionsScore $interruptionsScore,
         public AverageStressDuringSleep $averageStressDuringSleep,
-    ) {
-    }
+    ) {}
 
     public static function create(): self
     {

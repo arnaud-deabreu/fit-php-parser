@@ -20,8 +20,7 @@ final readonly class HsaRespirationData implements MessageInterface
         public Timestamp $timestamp,
         public ProcessingInterval $processingInterval,
         public RespirationRate $respirationRate,
-    ) {
-    }
+    ) {}
 
     public static function create(): self
     {

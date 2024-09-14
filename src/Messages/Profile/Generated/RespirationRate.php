@@ -18,8 +18,7 @@ final readonly class RespirationRate implements MessageInterface
     private function __construct(
         public Timestamp $timestamp,
         public RespirationRate1 $respirationRate,
-    ) {
-    }
+    ) {}
 
     public static function create(): self
     {

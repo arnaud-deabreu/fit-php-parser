@@ -24,8 +24,7 @@ final readonly class MesgCapabilities implements MessageInterface
         public MesgNum $mesgNum,
         public CountType $countType,
         public Count $count,
-    ) {
-    }
+    ) {}
 
     public static function create(): self
     {

@@ -25,8 +25,7 @@ final readonly class Data implements FieldInterface
         public string $units = '',
         public int $bits = 14,
         public bool $accumulate = false,
-    ) {
-    }
+    ) {}
 
     public function getDefinitionNumber(): int
     {

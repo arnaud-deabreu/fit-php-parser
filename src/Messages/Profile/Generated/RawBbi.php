@@ -26,8 +26,7 @@ final readonly class RawBbi implements MessageInterface
         public Time $time,
         public Quality $quality,
         public Gap $gap,
-    ) {
-    }
+    ) {}
 
     public static function create(): self
     {

@@ -42,8 +42,7 @@ final readonly class SplitSummary implements MessageInterface
         public AvgVertSpeed $avgVertSpeed,
         public TotalCalories $totalCalories,
         public TotalMovingTime $totalMovingTime,
-    ) {
-    }
+    ) {}
 
     public static function create(): self
     {

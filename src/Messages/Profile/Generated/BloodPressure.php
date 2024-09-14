@@ -36,8 +36,7 @@ final readonly class BloodPressure implements MessageInterface
         public HeartRateType $heartRateType,
         public Status $status,
         public UserProfileIndex $userProfileIndex,
-    ) {
-    }
+    ) {}
 
     public static function create(): self
     {

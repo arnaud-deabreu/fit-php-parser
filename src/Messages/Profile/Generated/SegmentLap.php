@@ -85,8 +85,8 @@ use FitParser\Messages\Profile\Generated\SegmentLap\TimeInCadenceZone;
 use FitParser\Messages\Profile\Generated\SegmentLap\TimeInHrZone;
 use FitParser\Messages\Profile\Generated\SegmentLap\TimeInPowerZone;
 use FitParser\Messages\Profile\Generated\SegmentLap\TimeInSpeedZone;
-use FitParser\Messages\Profile\Generated\SegmentLap\TimeStanding;
 use FitParser\Messages\Profile\Generated\SegmentLap\Timestamp;
+use FitParser\Messages\Profile\Generated\SegmentLap\TimeStanding;
 use FitParser\Messages\Profile\Generated\SegmentLap\TotalAscent;
 use FitParser\Messages\Profile\Generated\SegmentLap\TotalCalories;
 use FitParser\Messages\Profile\Generated\SegmentLap\TotalCycles;
@@ -204,8 +204,7 @@ final readonly class SegmentLap implements MessageInterface
         public EnhancedAvgAltitude $enhancedAvgAltitude,
         public EnhancedMaxAltitude $enhancedMaxAltitude,
         public EnhancedMinAltitude $enhancedMinAltitude,
-    ) {
-    }
+    ) {}
 
     public static function create(): self
     {

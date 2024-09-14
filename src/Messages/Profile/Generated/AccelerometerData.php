@@ -38,8 +38,7 @@ final readonly class AccelerometerData implements MessageInterface
         public CompressedCalibratedAccelX $compressedCalibratedAccelX,
         public CompressedCalibratedAccelY $compressedCalibratedAccelY,
         public CompressedCalibratedAccelZ $compressedCalibratedAccelZ,
-    ) {
-    }
+    ) {}
 
     public static function create(): self
     {

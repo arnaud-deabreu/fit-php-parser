@@ -25,8 +25,7 @@ final readonly class AvgAltitude implements FieldInterface
         public string $units = 'm',
         public int $bits = 16,
         public bool $accumulate = false,
-    ) {
-    }
+    ) {}
 
     public function getDefinitionNumber(): int
     {

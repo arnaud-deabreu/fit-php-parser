@@ -25,8 +25,7 @@ final readonly class HeartRateSourceType implements FieldInterface
         public string $units = '',
         public int $bits = 0,
         public bool $accumulate = false,
-    ) {
-    }
+    ) {}
 
     public function getDefinitionNumber(): int
     {

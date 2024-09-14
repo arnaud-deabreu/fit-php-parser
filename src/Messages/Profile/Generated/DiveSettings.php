@@ -80,8 +80,7 @@ final readonly class DiveSettings implements MessageInterface
         public DiveSounds $diveSounds,
         public LastStopMultiple $lastStopMultiple,
         public NoFlyTimeMode $noFlyTimeMode,
-    ) {
-    }
+    ) {}
 
     public static function create(): self
     {

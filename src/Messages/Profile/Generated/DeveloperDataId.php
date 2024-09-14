@@ -24,8 +24,7 @@ final readonly class DeveloperDataId implements MessageInterface
         public ManufacturerId $manufacturerId,
         public DeveloperDataIndex $developerDataIndex,
         public ApplicationVersion $applicationVersion,
-    ) {
-    }
+    ) {}
 
     public static function create(): self
     {

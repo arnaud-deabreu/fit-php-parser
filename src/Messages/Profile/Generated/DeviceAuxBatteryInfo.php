@@ -24,8 +24,7 @@ final readonly class DeviceAuxBatteryInfo implements MessageInterface
         public BatteryVoltage $batteryVoltage,
         public BatteryStatus $batteryStatus,
         public BatteryIdentifier $batteryIdentifier,
-    ) {
-    }
+    ) {}
 
     public static function create(): self
     {

@@ -26,8 +26,7 @@ final readonly class AntRx implements MessageInterface
         public MesgData $mesgData,
         public ChannelNumber $channelNumber,
         public Data $data,
-    ) {
-    }
+    ) {}
 
     public static function create(): self
     {

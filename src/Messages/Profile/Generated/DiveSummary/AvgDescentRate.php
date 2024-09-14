@@ -25,8 +25,7 @@ final readonly class AvgDescentRate implements FieldInterface
         public string $units = 'm/s',
         public int $bits = 0,
         public bool $accumulate = false,
-    ) {
-    }
+    ) {}
 
     public function getDefinitionNumber(): int
     {

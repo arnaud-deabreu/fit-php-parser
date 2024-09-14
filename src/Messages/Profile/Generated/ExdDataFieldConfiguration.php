@@ -26,8 +26,7 @@ final readonly class ExdDataFieldConfiguration implements MessageInterface
         public ConceptCount $conceptCount,
         public DisplayType $displayType,
         public Title $title,
-    ) {
-    }
+    ) {}
 
     public static function create(): self
     {

@@ -25,8 +25,7 @@ final readonly class Timestamp32k implements FieldInterface
         public string $units = '1/32768 s',
         public int $bits = 0,
         public bool $accumulate = false,
-    ) {
-    }
+    ) {}
 
     public function getDefinitionNumber(): int
     {

@@ -40,8 +40,7 @@ final readonly class Connectivity implements MessageInterface
         public GpsEphemerisDownloadEnabled $gpsEphemerisDownloadEnabled,
         public IncidentDetectionEnabled $incidentDetectionEnabled,
         public GrouptrackEnabled $grouptrackEnabled,
-    ) {
-    }
+    ) {}
 
     public static function create(): self
     {

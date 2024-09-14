@@ -20,8 +20,7 @@ final readonly class HsaWristTemperatureData implements MessageInterface
         public Timestamp $timestamp,
         public ProcessingInterval $processingInterval,
         public Value $value,
-    ) {
-    }
+    ) {}
 
     public static function create(): self
     {

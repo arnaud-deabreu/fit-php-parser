@@ -25,8 +25,7 @@ final readonly class CalibratedAccelZ implements FieldInterface
         public string $units = 'g',
         public int $bits = 0,
         public bool $accumulate = false,
-    ) {
-    }
+    ) {}
 
     public function getDefinitionNumber(): int
     {

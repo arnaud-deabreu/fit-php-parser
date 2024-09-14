@@ -18,8 +18,7 @@ final readonly class FileCreator implements MessageInterface
     private function __construct(
         public SoftwareVersion $softwareVersion,
         public HardwareVersion $hardwareVersion,
-    ) {
-    }
+    ) {}
 
     public static function create(): self
     {

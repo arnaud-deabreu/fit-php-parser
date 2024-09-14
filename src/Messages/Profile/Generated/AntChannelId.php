@@ -24,8 +24,7 @@ final readonly class AntChannelId implements MessageInterface
         public DeviceNumber $deviceNumber,
         public TransmissionType $transmissionType,
         public DeviceIndex $deviceIndex,
-    ) {
-    }
+    ) {}
 
     public static function create(): self
     {

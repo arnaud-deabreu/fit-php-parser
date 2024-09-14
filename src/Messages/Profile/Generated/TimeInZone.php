@@ -48,8 +48,7 @@ final readonly class TimeInZone implements MessageInterface
         public ThresholdHeartRate $thresholdHeartRate,
         public PwrCalcType $pwrCalcType,
         public FunctionalThresholdPower $functionalThresholdPower,
-    ) {
-    }
+    ) {}
 
     public static function create(): self
     {

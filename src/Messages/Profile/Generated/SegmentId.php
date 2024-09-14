@@ -32,8 +32,7 @@ final readonly class SegmentId implements MessageInterface
         public DefaultRaceLeader $defaultRaceLeader,
         public DeleteStatus $deleteStatus,
         public SelectionType $selectionType,
-    ) {
-    }
+    ) {}
 
     public static function create(): self
     {

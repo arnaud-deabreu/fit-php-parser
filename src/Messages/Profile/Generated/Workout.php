@@ -30,8 +30,7 @@ final readonly class Workout implements MessageInterface
         public SubSport $subSport,
         public PoolLength $poolLength,
         public PoolLengthUnit $poolLengthUnit,
-    ) {
-    }
+    ) {}
 
     public static function create(): self
     {

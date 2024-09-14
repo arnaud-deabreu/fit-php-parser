@@ -18,8 +18,7 @@ final readonly class HrvValue implements MessageInterface
     private function __construct(
         public Timestamp $timestamp,
         public Value $value,
-    ) {
-    }
+    ) {}
 
     public static function create(): self
     {

@@ -25,8 +25,7 @@ final readonly class CompressedSpeedDistance implements FieldInterface
         public string $units = 'm/s,m',
         public int $bits = 12,
         public bool $accumulate = true,
-    ) {
-    }
+    ) {}
 
     public function getDefinitionNumber(): int
     {

@@ -28,8 +28,7 @@ final readonly class HsaGyroscopeData implements MessageInterface
         public GyroY $gyroY,
         public GyroZ $gyroZ,
         public Timestamp32k $timestamp32k,
-    ) {
-    }
+    ) {}
 
     public static function create(): self
     {

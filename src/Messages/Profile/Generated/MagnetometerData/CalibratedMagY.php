@@ -25,8 +25,7 @@ final readonly class CalibratedMagY implements FieldInterface
         public string $units = 'G',
         public int $bits = 0,
         public bool $accumulate = false,
-    ) {
-    }
+    ) {}
 
     public function getDefinitionNumber(): int
     {

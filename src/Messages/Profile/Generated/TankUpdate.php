@@ -20,8 +20,7 @@ final readonly class TankUpdate implements MessageInterface
         public Timestamp $timestamp,
         public Sensor $sensor,
         public Pressure $pressure,
-    ) {
-    }
+    ) {}
 
     public static function create(): self
     {

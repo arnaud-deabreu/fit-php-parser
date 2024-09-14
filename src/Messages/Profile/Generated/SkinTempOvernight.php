@@ -24,8 +24,7 @@ final readonly class SkinTempOvernight implements MessageInterface
         public AverageDeviation $averageDeviation,
         public Average7DayDeviation $average7DayDeviation,
         public NightlyValue $nightlyValue,
-    ) {
-    }
+    ) {}
 
     public static function create(): self
     {

@@ -26,8 +26,7 @@ final readonly class AadAccelFeatures implements MessageInterface
         public ZeroCrossCnt $zeroCrossCnt,
         public Instance $instance,
         public TimeAboveThreshold $timeAboveThreshold,
-    ) {
-    }
+    ) {}
 
     public static function create(): self
     {

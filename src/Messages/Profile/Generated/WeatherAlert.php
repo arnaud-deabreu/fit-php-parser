@@ -26,8 +26,7 @@ final readonly class WeatherAlert implements MessageInterface
         public ExpireTime $expireTime,
         public Severity $severity,
         public Type $type,
-    ) {
-    }
+    ) {}
 
     public static function create(): self
     {

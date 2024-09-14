@@ -25,8 +25,7 @@ final readonly class ExerciseWeight implements FieldInterface
         public string $units = 'kg',
         public int $bits = 0,
         public bool $accumulate = false,
-    ) {
-    }
+    ) {}
 
     public function getDefinitionNumber(): int
     {

@@ -20,8 +20,7 @@ final readonly class ChronoShotData implements MessageInterface
         public Timestamp $timestamp,
         public ShotSpeed $shotSpeed,
         public ShotNum $shotNum,
-    ) {
-    }
+    ) {}
 
     public static function create(): self
     {

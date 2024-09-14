@@ -25,8 +25,7 @@ final readonly class BikeSpdAntIdTransType implements FieldInterface
         public string $units = '',
         public int $bits = 0,
         public bool $accumulate = false,
-    ) {
-    }
+    ) {}
 
     public function getDefinitionNumber(): int
     {

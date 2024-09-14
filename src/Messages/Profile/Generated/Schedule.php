@@ -28,8 +28,7 @@ final readonly class Schedule implements MessageInterface
         public Completed $completed,
         public Type $type,
         public ScheduledTime $scheduledTime,
-    ) {
-    }
+    ) {}
 
     public static function create(): self
     {

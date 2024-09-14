@@ -18,8 +18,7 @@ final readonly class SleepLevel implements MessageInterface
     private function __construct(
         public Timestamp $timestamp,
         public SleepLevel1 $sleepLevel,
-    ) {
-    }
+    ) {}
 
     public static function create(): self
     {

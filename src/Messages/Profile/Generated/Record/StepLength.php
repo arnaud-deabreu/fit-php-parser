@@ -25,8 +25,7 @@ final readonly class StepLength implements FieldInterface
         public string $units = 'mm',
         public int $bits = 0,
         public bool $accumulate = false,
-    ) {
-    }
+    ) {}
 
     public function getDefinitionNumber(): int
     {

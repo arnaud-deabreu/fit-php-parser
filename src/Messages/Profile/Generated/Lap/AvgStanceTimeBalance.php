@@ -25,8 +25,7 @@ final readonly class AvgStanceTimeBalance implements FieldInterface
         public string $units = 'percent',
         public int $bits = 0,
         public bool $accumulate = false,
-    ) {
-    }
+    ) {}
 
     public function getDefinitionNumber(): int
     {

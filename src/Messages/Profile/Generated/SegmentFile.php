@@ -32,8 +32,7 @@ final readonly class SegmentFile implements MessageInterface
         public LeaderActivityId $leaderActivityId,
         public LeaderActivityIdString $leaderActivityIdString,
         public DefaultRaceLeader $defaultRaceLeader,
-    ) {
-    }
+    ) {}
 
     public static function create(): self
     {

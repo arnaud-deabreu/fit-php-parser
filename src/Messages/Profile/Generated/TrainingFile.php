@@ -26,8 +26,7 @@ final readonly class TrainingFile implements MessageInterface
         public Product $product,
         public SerialNumber $serialNumber,
         public TimeCreated $timeCreated,
-    ) {
-    }
+    ) {}
 
     public static function create(): self
     {

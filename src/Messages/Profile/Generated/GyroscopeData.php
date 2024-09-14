@@ -32,8 +32,7 @@ final readonly class GyroscopeData implements MessageInterface
         public CalibratedGyroX $calibratedGyroX,
         public CalibratedGyroY $calibratedGyroY,
         public CalibratedGyroZ $calibratedGyroZ,
-    ) {
-    }
+    ) {}
 
     public static function create(): self
     {

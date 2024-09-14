@@ -34,8 +34,7 @@ final readonly class Jump implements MessageInterface
         public PositionLong $positionLong,
         public Speed $speed,
         public EnhancedSpeed $enhancedSpeed,
-    ) {
-    }
+    ) {}
 
     public static function create(): self
     {

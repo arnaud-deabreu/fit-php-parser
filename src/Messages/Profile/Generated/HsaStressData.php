@@ -20,8 +20,7 @@ final readonly class HsaStressData implements MessageInterface
         public Timestamp $timestamp,
         public ProcessingInterval $processingInterval,
         public StressLevel $stressLevel,
-    ) {
-    }
+    ) {}
 
     public static function create(): self
     {

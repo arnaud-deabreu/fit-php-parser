@@ -22,8 +22,7 @@ final readonly class HsaHeartRateData implements MessageInterface
         public ProcessingInterval $processingInterval,
         public Status $status,
         public HeartRate $heartRate,
-    ) {
-    }
+    ) {}
 
     public static function create(): self
     {

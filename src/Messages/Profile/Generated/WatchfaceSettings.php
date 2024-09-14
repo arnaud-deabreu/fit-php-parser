@@ -20,8 +20,7 @@ final readonly class WatchfaceSettings implements MessageInterface
         public MessageIndex $messageIndex,
         public Mode $mode,
         public Layout $layout,
-    ) {
-    }
+    ) {}
 
     public static function create(): self
     {

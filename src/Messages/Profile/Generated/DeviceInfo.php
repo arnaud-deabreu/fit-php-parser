@@ -52,8 +52,7 @@ final readonly class DeviceInfo implements MessageInterface
         public SourceType $sourceType,
         public ProductName $productName,
         public BatteryLevel $batteryLevel,
-    ) {
-    }
+    ) {}
 
     public static function create(): self
     {

@@ -36,8 +36,7 @@ final readonly class Set implements MessageInterface
         public WeightDisplayUnit $weightDisplayUnit,
         public MessageIndex $messageIndex,
         public WktStepIndex $wktStepIndex,
-    ) {
-    }
+    ) {}
 
     public static function create(): self
     {

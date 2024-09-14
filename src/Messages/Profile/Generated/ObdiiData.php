@@ -32,8 +32,7 @@ final readonly class ObdiiData implements MessageInterface
         public SystemTime $systemTime,
         public StartTimestamp $startTimestamp,
         public StartTimestampMs $startTimestampMs,
-    ) {
-    }
+    ) {}
 
     public static function create(): self
     {

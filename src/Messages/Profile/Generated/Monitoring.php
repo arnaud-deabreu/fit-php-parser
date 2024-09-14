@@ -72,8 +72,7 @@ final readonly class Monitoring implements MessageInterface
         public Descent $descent,
         public ModerateActivityMinutes $moderateActivityMinutes,
         public VigorousActivityMinutes $vigorousActivityMinutes,
-    ) {
-    }
+    ) {}
 
     public static function create(): self
     {

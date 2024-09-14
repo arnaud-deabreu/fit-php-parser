@@ -20,8 +20,7 @@ final readonly class HrZone implements MessageInterface
         public MessageIndex $messageIndex,
         public HighBpm $highBpm,
         public Name $name,
-    ) {
-    }
+    ) {}
 
     public static function create(): self
     {

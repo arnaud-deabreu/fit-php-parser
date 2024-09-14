@@ -24,8 +24,7 @@ final readonly class HrmProfile implements MessageInterface
         public HrmAntId $hrmAntId,
         public LogHrv $logHrv,
         public HrmAntIdTransType $hrmAntIdTransType,
-    ) {
-    }
+    ) {}
 
     public static function create(): self
     {

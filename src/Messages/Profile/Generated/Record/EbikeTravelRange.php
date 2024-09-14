@@ -25,8 +25,7 @@ final readonly class EbikeTravelRange implements FieldInterface
         public string $units = 'km',
         public int $bits = 0,
         public bool $accumulate = false,
-    ) {
-    }
+    ) {}
 
     public function getDefinitionNumber(): int
     {

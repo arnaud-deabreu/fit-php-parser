@@ -20,8 +20,7 @@ final readonly class VideoTitle implements MessageInterface
         public MessageIndex $messageIndex,
         public MessageCount $messageCount,
         public Text $text,
-    ) {
-    }
+    ) {}
 
     public static function create(): self
     {

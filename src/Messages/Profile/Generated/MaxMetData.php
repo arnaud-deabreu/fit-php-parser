@@ -30,8 +30,7 @@ final readonly class MaxMetData implements MessageInterface
         public CalibratedData $calibratedData,
         public HrSource $hrSource,
         public SpeedSource $speedSource,
-    ) {
-    }
+    ) {}
 
     public static function create(): self
     {

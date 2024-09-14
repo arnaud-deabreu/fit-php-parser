@@ -22,8 +22,7 @@ final readonly class MetZone implements MessageInterface
         public HighBpm $highBpm,
         public Calories $calories,
         public FatCalories $fatCalories,
-    ) {
-    }
+    ) {}
 
     public static function create(): self
     {

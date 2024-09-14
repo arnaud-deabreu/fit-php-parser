@@ -25,8 +25,7 @@ final readonly class AvgVam implements FieldInterface
         public string $units = 'm/s',
         public int $bits = 16,
         public bool $accumulate = false,
-    ) {
-    }
+    ) {}
 
     public function getDefinitionNumber(): int
     {

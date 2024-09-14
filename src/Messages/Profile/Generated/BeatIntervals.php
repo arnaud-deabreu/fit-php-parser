@@ -20,8 +20,7 @@ final readonly class BeatIntervals implements MessageInterface
         public Timestamp $timestamp,
         public TimestampMs $timestampMs,
         public Time $time,
-    ) {
-    }
+    ) {}
 
     public static function create(): self
     {
