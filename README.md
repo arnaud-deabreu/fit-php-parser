@@ -21,7 +21,6 @@ Example:
 A `FileId` record can contain an array of `Manufacturer`, `Number`, `Product`, `ProductName`, `SerialNumber`, and `TimeCreated` `ValueInterface` objects.
 If a field is unknown, it will be represented by an `UnknownValue` object.
 
-```
 ## 📚 Installation
 To use the library, install it with this command:
 
