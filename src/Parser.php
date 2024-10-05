@@ -7,7 +7,8 @@ namespace FitParser;
 use FitParser\Enums\Mask;
 use FitParser\Messages\DefinitionMessage;
 use FitParser\Records\Field;
-use FitParser\Records\Record;
+use FitParser\Records\Generated\RecordsRegistry;
+use FitParser\Records\RecordInterface;
 use Symfony\Component\String\ByteString;
 
 final class Parser
@@ -27,8 +28,10 @@ final class Parser
      */
     private array $localMessageDefinitions = [];
 
+    private RecordsRegistry $recordsRegistry;
+
     /**
-     * @var Record[]
+     * @var RecordInterface[]
      */
     private array $records;
 
@@ -40,6 +43,7 @@ final class Parser
             $this->fileContents,
             $this->crcChecker,
         );
+        $this->recordsRegistry = new RecordsRegistry();
     }
 
     public function parse(): void
@@ -49,7 +53,7 @@ final class Parser
     }
 
     /**
-     * @return Record[]
+     * @return RecordInterface[]
      */
     public function getRecords(): array
     {
@@ -106,7 +110,7 @@ final class Parser
 
         $fields = iterator_to_array($messageDefinition->profileMessage->getFields());
 
-        $record = Record::create();
+        $record = $this->recordsRegistry->getRecord($messageDefinition->globalMessageNumber);
 
         foreach ($messageDefinition->fieldDefinitions as $fieldDefinition) {
             $field = $fields[$fieldDefinition->number] ?? null;
@@ -118,12 +122,14 @@ final class Parser
             );
 
             if (null !== $rawValue) {
-                $record->addField(
-                    Field::create(
-                        null !== $field ? Utils::convertFieldClassName($field::class) : 'data_'.$fieldDefinition->number,
-                        $rawValue,
-                        $field,
-                    )
+                $record->addValue(
+                    Utils::convertFieldToValueObject(
+                        Field::create(
+                            null !== $field ? $field::class : 'data_'.$fieldDefinition->number,
+                            $rawValue,
+                            $field,
+                        )
+                    ),
                 );
             }
         }

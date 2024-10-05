@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace FitParser\Tests;
 
 use FitParser\Parser;
+use FitParser\Records\Generated\FileId;
 use PHPUnit\Framework\Assert;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
@@ -20,5 +21,23 @@ final class ParserTest extends TestCase
         $parser->parse();
 
         Assert::assertNotEmpty($parser->getRecords());
+
+        $fileIdRecord = $parser->getRecords()[0];
+
+        Assert::assertInstanceOf(FileId::class, $fileIdRecord);
+
+        $recordValues = $fileIdRecord->getValues();
+
+        Assert::assertInstanceOf(FileId\Type::class, $recordValues[0]);
+        Assert::assertEquals(4, $recordValues[0]->value());
+
+        Assert::assertInstanceOf(FileId\Manufacturer::class, $recordValues[1]);
+        Assert::assertEquals(1, $recordValues[1]->value());
+
+        Assert::assertInstanceOf(FileId\TimeCreated::class, $recordValues[2]);
+        Assert::assertEquals(new \DateTimeImmutable('2021-09-08 03:46:11.0 +00:00'), $recordValues[2]->value());
+
+        Assert::assertInstanceOf(FileId\ProductName::class, $recordValues[3]);
+        Assert::assertEquals('abcdefghi', $recordValues[3]->value());
     }
 }
