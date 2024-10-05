@@ -8,11 +8,11 @@ use FitParser\Enums\BaseType;
 use FitParser\Messages\Profile\FieldInterface;
 use FitParser\Utils;
 
-final class Field
+final readonly class Field
 {
     private function __construct(
-        public readonly string $name,
-        public null|\DateTimeImmutable|float|int|string $value,
+        public string $name,
+        public null|bool|\DateTimeImmutable|float|int|string $value,
     ) {}
 
     public static function create(
@@ -29,7 +29,7 @@ final class Field
     public static function transformValue(
         null|float|int|string $rawValue,
         ?FieldInterface $field
-    ): null|\DateTimeImmutable|float|int|string {
+    ): null|bool|\DateTimeImmutable|float|int|string {
         if (null === $field) {
             return $rawValue;
         }

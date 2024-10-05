@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace FitParser;
 
 use FitParser\Enums\BaseType;
+use FitParser\Records\Field;
+use FitParser\Records\ValueInterface;
 use Symfony\Component\String\UnicodeString;
 
 final readonly class Utils
@@ -61,8 +63,30 @@ final readonly class Utils
         return $dateTimeImmutable;
     }
 
-    public static function convertFieldClassName(string $className): string
+    public static function convertFieldToValueObject(Field $field): ValueInterface
     {
-        return (new UnicodeString($className))->replace('FitParser\Messages\Profile\Generated\\', '')->snake()->toString();
+        if (true === str_starts_with($field->name, 'data_')) {
+            /**
+             * @var class-string $class
+             */
+            $class = 'FitParser\Records\UnknownValue';
+        } else {
+            /**
+             * @var class-string $class
+             */
+            $class = (new UnicodeString($field->name))->replace('FitParser\Messages\Profile\Generated\\', 'FitParser\Records\Generated\\')->toString();
+        }
+
+        if (false === class_exists($class)) {
+            throw new \InvalidArgumentException(\sprintf('%s does not exist', $class));
+        }
+
+        $valueObject = $class::create($field->value);
+
+        if ($valueObject instanceof ValueInterface) {
+            return $valueObject;
+        }
+
+        throw new \InvalidArgumentException(\sprintf('%s does not implement ValueInterface', $class));
     }
 }
