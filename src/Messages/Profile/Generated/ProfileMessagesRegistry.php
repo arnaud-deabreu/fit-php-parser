@@ -8,9 +8,11 @@ declare(strict_types=1);
 
 namespace FitParser\Messages\Profile\Generated;
 
+use FitParser\Messages\Profile\MessageInterface;
+
 final class ProfileMessagesRegistry
 {
-    /** @var class-string[] */
+    /** @var class-string<MessageInterface>[] */
     private array $messages;
 
     public function __construct()
@@ -137,7 +139,7 @@ final class ProfileMessagesRegistry
     }
 
     /**
-     * @return class-string[]
+     * @return class-string<MessageInterface>[]
      */
     public function getMessages(): array
     {

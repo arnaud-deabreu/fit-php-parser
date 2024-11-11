@@ -37,7 +37,10 @@ final class Stream
 
         $uint8 = unpack(BaseType::unpackFormatFrom(BaseType::UINT8).'uint8', $bytes);
 
-        if (false === $uint8 || false === \array_key_exists('uint8', $uint8)) {
+        if (
+            false === $uint8
+            || false === \array_key_exists('uint8', $uint8)
+            || false === \is_int($uint8['uint8'])) {
             throw new \RuntimeException('Invalid uint8 format');
         }
 
@@ -100,6 +103,13 @@ final class Stream
 
             if (false === $value || false === \array_key_exists('value', $value)) {
                 continue;
+            }
+
+            if (
+                false === \is_int($value['value'])
+                && false === \is_float($value['value'])
+            ) {
+                throw new \RuntimeException('Invalid value');
             }
 
             $values[] = $value['value'];
