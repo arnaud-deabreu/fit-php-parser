@@ -160,6 +160,20 @@ enum BaseType: int
             );
         }
 
+        if (
+            false === \is_int($value['value'])
+            && false === \is_float($value['value'])
+            && false === \is_string($value['value'])
+        ) {
+            throw new \RuntimeException(
+                \sprintf(
+                    'Unable type from unpacked value for BaseType (%s) : %s',
+                    $baseType->name,
+                    $string->toString()
+                )
+            );
+        }
+
         return $value['value'];
     }
 }

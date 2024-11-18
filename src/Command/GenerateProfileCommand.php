@@ -426,11 +426,11 @@ class GenerateProfileCommand extends Command
         $profileMessagesRegistryClassMessagesProperty = $profileMessagesRegistryClass->addProperty('messages');
         $profileMessagesRegistryClassMessagesProperty->setPrivate();
         $profileMessagesRegistryClassMessagesProperty->setType('array');
-        $profileMessagesRegistryClassMessagesProperty->addComment('@var class-string[]');
+        $profileMessagesRegistryClassMessagesProperty->addComment('@var class-string<MessageInterface>[]');
 
         $profileMessagesRegistryClassGetMessagesMethod = $profileMessagesRegistryClass->addMethod('getMessages');
         $profileMessagesRegistryClassGetMessagesMethod->setBody('return $this->messages;');
-        $profileMessagesRegistryClassGetMessagesMethod->setComment('@return class-string[]');
+        $profileMessagesRegistryClassGetMessagesMethod->setComment('@return class-string<MessageInterface>[]');
         $profileMessagesRegistryClassGetMessagesMethod->setReturnType('array');
 
         ksort($messageClasses);

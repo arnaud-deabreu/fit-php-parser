@@ -29,7 +29,7 @@ final readonly class Field
     public static function transformValue(
         null|float|int|string $rawValue,
         ?FieldInterface $field
-    ): null|bool|\DateTimeImmutable|float|int|string {
+    ): null|\DateTimeImmutable|float|int|string {
         if (null === $field) {
             return $rawValue;
         }

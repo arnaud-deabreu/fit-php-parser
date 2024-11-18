@@ -5,14 +5,13 @@ declare(strict_types=1);
 namespace FitParser\Tests;
 
 use FitParser\Enums\BaseType;
+use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\CoversMethod;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
-/**
- * @coversNothing
- */
-#[CoversMethod(className: BaseType::class, methodName: 'unpackFormatFrom')]
+#[CoversClass(BaseType::class)]
+#[CoversMethod(BaseType::class, 'unpackFormatFrom')]
 final class BaseTypeUnPackFormatUnpackTest extends TestCase
 {
     #[DataProvider('unpackFromBaseTypeProvider')]

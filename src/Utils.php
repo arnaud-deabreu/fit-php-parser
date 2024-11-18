@@ -38,7 +38,7 @@ final readonly class Utils
      */
     public static function onlyNullValues(mixed $values): bool
     {
-        return array_reduce($values, static fn ($state, $value) => null !== $value ? false : $state, true);
+        return array_reduce($values, static fn ($state, $value): bool => null !== $value ? false : $state, true);
     }
 
     public static function onlyInvalidValues(mixed $rawFieldValue, BaseType $baseType): bool
@@ -46,7 +46,11 @@ final readonly class Utils
         $invalidValue = BaseType::invalidFrom($baseType);
 
         if (\is_array($rawFieldValue)) {
-            return array_reduce($rawFieldValue, static fn ($state, $value) => $value !== $invalidValue ? false : $state, true);
+            return array_reduce(
+                $rawFieldValue,
+                static fn ($state, $value): bool => $value !== $invalidValue ? false : $state,
+                true
+            );
         }
 
         return $rawFieldValue === $invalidValue;

@@ -31,7 +31,7 @@
         "symfony/console": "^7.1",
         "phpoffice/phpspreadsheet": "^2.2 || ^3.0",
         "nette/php-generator": "^4.1",
-        "phpstan/phpstan": "^1.11",
+        "phpstan/phpstan": "^2.0",
         "friendsofphp/php-cs-fixer": "^3.62"
     }
 }
